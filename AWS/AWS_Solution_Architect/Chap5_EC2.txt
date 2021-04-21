@@ -74,3 +74,21 @@ EBS Volume migration
     How: take a snapshot -> create an AMI from the snapshot -> move the AMI to another AZ/Region -> launch the EC2 from that AMI
 
 AMI Types (EBS and Snapshots)
+    - To spin up an AMI, user must choose: 
+        - Region
+        - OS
+        - Architecture (32-bit/64-bit)
+        - Launch Permissions
+        - 2 types of Storage for Root Device:
+            +Instance Store (EPHEMERAL STORAGE):    root device is instance store volume created from a template stored in S3
+            +EBS Backed Volumes:                    root device is EBS volume created from EBS snapshots
+    - Instance Store Volume vs EBS Volumes:
+        +Instance Store Volume (Instance Backed)
+            = Ephemeral Storage: volatile temporary storage  
+            = Cannot be stopped
+            = If host failed, lose data
+            = Root will be deleted on Termination
+        +EBS Volume:
+            = Can be stopped
+            = Will not lose data
+            = Root will be deleted on Termination, can tell AWS to keep root 
