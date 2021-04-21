@@ -1,0 +1,2 @@
+AMI Types (EBS vs Instance Store)
+    When can I add extra storage to an AMI instance? While launching AMI or after launching AMI?
