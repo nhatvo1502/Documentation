@@ -92,3 +92,33 @@ AMI Types (EBS and Snapshots)
             = Can be stopped
             = Will not lose data
             = Root will be deleted on Termination, can tell AWS to keep root 
+
+ENI - Elastick Network Interface: (For basica networking, sepera dfefete management network, low cost)
+    - a locagical network card
+    - a component of VPC
+    - a primary private IPv4
+    - can add a secondary ENI -> secondary IPv4 (Multiple ENIs)
+        Use case:
+            + management network: seperate management network with production network
+            + network and security appliances in VPC: to seperate with other network
+            + create dual-homed instances with workloads/roles on distinct subnets
+            + create a low-budget, HA solution
+
+EN - Enhanced Networking (Need speed 10Gpbs - 100Gbps, reliable-high throughput)
+    - provide high-performance networking capability
+        + high bandwidth
+        + high packet per second (PPS)
+        + lower inter-instance latencies
+    - use single root I/O virtualization (SR-IOV) 
+    - requires supported instances
+    - no extra charge
+    ENA vs VF:
+        - ENA: Elastic Network Adapter, support newer instance type, up to 100 Gbps
+        - VF: Intel 82599 Virtual Function, support older instance type, up to 10 Gbps
+
+EFA - Elastic Fabric Adapter (to accelerate HPC + ML, need OS by-pass)
+    - a network device attach to EC2 instance to accelerate High Perormance Computing (HPC) and machine learning applications
+    - provides consistent lower latency + high throughput (compares to traditionally TCP transport) using cloud-based HPC system
+    - EFA use OS-bypass:
+        OS-bypass enables HPC and machine learning application to bypass OS kernel, communicate directly with EFA device, REALLY FAST, REALLY LOW LATENCY
+    - Support Linux only, no Windows
