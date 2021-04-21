@@ -1,0 +1,154 @@
+Organization and Account
+    Organization: manage billing, control access, compliance,security,
+        share resources accross AWS accounts
+    Root account (only 1, master) vs accounts
+    Organization Unit
+    Service Control Policies
+
+AWS Networking
+    Internet > AWS Account > Region > VPC (Virtual Private Cloud) > 
+        AZ > Subnet (Public/Private) > Instance
+    Internet Gate Way (Access internet)
+    Route Table (termine network traffics directed)
+    Security Group (Instance lvl) vs NACLs (Subnet lvl)
+
+Database Services
+    DynamoDB -NoSQL key/value database (cassandra)
+    DocumentDB -NoSQL Document (mongoDB compatible)
+    RDS -Support multiple engines: MySQL, Postgres, Maria DB, Oracle, Microsoft SQL server, Aurora
+        Aurora: fast, replicated multiple AZs, fully managed
+        Aurora serverless - only run when needed (Lambda)
+    Neptune -graph DB
+    Redshift - Columnar DB, petabyte warehouse
+    Elasticase -Redis/Memcached DB
+
+Provivioning easy way to automated determine resource and setup instance using code or GUI
+    Elastic Beanstalk
+    OpsWorks
+    CloudFormation
+    AWS QuickStart
+    AWS MarketPlace
+
+Computing
+    EC2 Elastic Computer Cloud
+    ECS vs EKS:
+        ECS - Elastic Container Service, Manage Docker image, free, light
+        EKS - Elastic Kubernetes Service, Manage Kubernetes service, pay, complex
+    Fargate serverless way to launch containers (Docker/Kubernetes)
+        Automatically evaluate needed resource for an image, spin a EC2, launch the image
+        No Provisioning needed
+        On demand
+        pay only for what resource use (pay for how long, how much capacity)
+        Easily scapes up and down
+    Lambda Serverless functions to run code without Provisioning
+    Elastic Beanstalk orchestrates AWS services; EC2, S3,  etc to scale up and down Automatically upon the growth of the image/container inside
+    AWS Batch launch EC2 use spot instances to save money
+
+Storage
+    S3 Simple Storage Service - object Storage
+    S3 Glacier - low cost, cold data, take longer to access, charge per retrieve
+    Storage Gateway - gateway to cloud from prem (File gate way, Volume Gateway, tape gateway)
+    EBS Elastic Block Storage - cloud hard drive, attach to 1 EC2 instance one at a time
+    EFS Elastic File Storage - cloud hard drive, attach to multiple EC2 at the same time
+    Snowball:
+        Snowball - Physically migrate lots of date via a computer suite 50-80TB
+        Snowball Edge - better version 100TB
+        Snowmobile - shipping container on a trailer truck, 100PB
+
+Business Centric Services
+    Amazon Connect - Call Center service
+    WorkSpaces - Virtual Remote Desktop
+        DaaS (Desktop-as-a-Service)
+        VDI (Virtual Desktop Infrastructure)
+            Needs: 1 VPC, 1 Directory, 2 private Subnets, 1 public Subnet, 1 NAT, 1 IGW, Amazon IP autopool
+    WorkDocs - similar to SharePoints
+    Chime - online meeting, video conferencing, similar to Skype + Slack
+    WorkMail - business email, similar to GMAIL
+    Pinpoint - marketing compaign management to sending email, sms, push notification, voice messages
+    SES - Simple Email Service send email, noti via Lambda
+    QuickSight - Business Intelligence (BI) to connect multiple datasource to delivery business insights and securely publish insights on multiple devices or embedded app
+
+Enterprise Integration (going hybrid)
+    Direct Connect - dedicated Giga virtual fibre optic to AWS
+    VPN
+        Site-to-site VPN - connect on-prem to AWS
+        Client VPN - connect off-prem to AWS
+    Storage Gateway - hybrid service to connect on-prem storage to AWS cloud storage for: backup, archiving,
+        disaster recovery, cloud data process, storage tiering, and migration
+    Active Directory - Microsoft AD managed by AWS
+   
+Logging Services
+    CloudTrail - logs all API calls (SDK, CLI) betweens AWS services (who can we blame)
+        Who created what
+        Who to blame
+        Automate responses
+    CloudWatch 
+        CloudWatch Logs - logs storage for AWS services: CPU ultilization, memory, etc.
+        CloudWatch Metrics - present time-ordered set of data points to monitor
+        CloudWatch Events - trigger event base on condition
+        CloudWatch Alarms - trigger noti base on Metrics
+        CloudWatch Dashboard - visualization of Metricks
+
+Initialisms
+    IAM
+        Identity and Access Management
+    S3
+        Simple Storage Service
+    SWF
+        Simple Workflow Service
+    SNS
+        Simple Notification Service
+    SQS
+        Simple Queue Service
+    SES
+        Simple Email Service
+    SSM
+        Simple System Manager
+    RDS
+        Relational Database Service
+    VPC
+        Virtual Private Cloud
+    VPN
+        Virtual Private Network
+    CFN
+        CloudFormation
+    WAF
+        Web Application Firewall
+    MQ
+        Amazon ActiveMQ
+    ASG
+        Auto Scaling Group
+    TAM
+        Technical Account Manager
+    ELB
+        Elastic Load Balancer
+    ALB
+        Application Load Balancer
+    NLB
+        Network Load Balancer
+    EC2
+        Elastic Cloud Computing
+    ECS
+        Elastic Container Service
+    EKS
+        Elastic Kubernetes Service
+    ECR
+        Elastic Container Repository
+    EBS
+        Elastic Block Storage
+    EFS
+        Elastic File Storage
+    EMR
+        Elastic MapReduce
+    EB
+        Elastic Beanstalk
+    ES
+        Elasticsearch
+    MKS
+        Managed Kafka Service
+    IoT
+        Internet of Things
+    RI
+        Reserved Instance
+    
+     

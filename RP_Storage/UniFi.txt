@@ -1,0 +1,7 @@
+UniFi 
+username: nhat.vo
+password: Welcome1
+
+HB1 - https://192.168.88.17:8443/manage/hotspot/account/login/r3m3875n
+HB2 - https://192.168.88.17:8443/manage/hotspot/account/login/3fp0gm85
+HB3 - https://192.168.88.17:8443/manage/hotspot/account/login/ntkmqfwq
