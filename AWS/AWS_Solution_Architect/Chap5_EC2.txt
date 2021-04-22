@@ -122,3 +122,5 @@ EFA - Elastic Fabric Adapter (to accelerate HPC + ML, need OS by-pass)
     - EFA use OS-bypass:
         OS-bypass enables HPC and machine learning application to bypass OS kernel, communicate directly with EFA device, REALLY FAST, REALLY LOW LATENCY
     - Support Linux only, no Windows
+
+Encrypted Root Device
