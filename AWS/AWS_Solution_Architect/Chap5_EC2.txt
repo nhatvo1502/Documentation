@@ -123,4 +123,17 @@ EFA - Elastic Fabric Adapter (to accelerate HPC + ML, need OS by-pass)
         OS-bypass enables HPC and machine learning application to bypass OS kernel, communicate directly with EFA device, REALLY FAST, REALLY LOW LATENCY
     - Support Linux only, no Windows
 
-Encrypted Root Device
+Encrypted Root Device - Root Device Volume = RDV
+    Root Device - hard disk that has instance OS on
+    Can you encrypte root device? - Before, no. Now, yes.
+    How: Encrypt root device while creating new instance
+    If the instance root device created unencrypted, you have to:
+        - Create a Snapshot on unencrypted RDV
+        - Copy that Snapshot and encrypted 
+        - Create an AMI from encrypted Snapshot
+        - Use that AMI to launch a new encrypted instance
+        *To delete the encrypted Snapshot, must delete the AMI associates with it first
+    =>Snapsots of encrypted volumes are encrypted automatically
+    =>Volumes restored from encrypted Snapshots are encrypted automatically
+    =>Only uncrypted snapshots are sharable (with other accounts or public)
+    =>Can encrypt root device volumes while creating EC2 instance
