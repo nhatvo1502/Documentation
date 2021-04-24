@@ -137,3 +137,5 @@ Encrypted Root Device - Root Device Volume = RDV
     =>Volumes restored from encrypted Snapshots are encrypted automatically
     =>Only uncrypted snapshots are sharable (with other accounts or public)
     =>Can encrypt root device volumes while creating EC2 instance
+
+Spot Instances and Spot Fleets      
