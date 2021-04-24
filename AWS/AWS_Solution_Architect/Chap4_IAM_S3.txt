@@ -1,5 +1,63 @@
 Identity and Access Management 101
 
+    S3 Select - 
+        - used to retrieve only a subset of data 400% faster, 80% cheaper
+        - get data by rows/columns using simple SQL expressions
+        - save money on data transfer
+        How: use a simple SQL expression to return only the data from a stored object
+            instead of retrieving/processing the entitre object
+        Before: CSV > download > decompressed > process
+        Now: CSV > S3 > S3 select
+
+    Glacier Select - 
+        - allow to run sql expression direct on Glacier tier storage
+
+    Sharing S3 Bucket across accounts - 
+        3 Ways:
+            Across-account IAM Roles (Programatic + Console access)
+            Bucket Policies and IAM apply for entire bucket (Programmatic)
+            Bucket ACLs and IAM apply for individual objects (Programmatic)
+    
+    Cross-Region Replication
+        - Versioning must be enable on both source and target bucket
+        - existing files in source bucket are not replicated automatically
+        - delete markers are not replicated
+        - deleting individial versions are not replicated
+        - Cross-region Rep is at high level
+
+    S3 Transfer Acceleration
+        - utilize CloudFront to upload file to S3
+        - provide a URL instead of upload directly
+        - S3 Transfer Acceleration Tool
+
+    AWS Data Sync
+        - To move large amount of data from prem to AWS
+        - NFS and SMB compatible file system
+        - Replaction can be done hourly, daily, weekly
+        - Install DataSync Agent on client to start Replication
+        - Can be use to replicate EFS to EFS between 2 EC2 instances
+
+    CloudFront
+        - can be used to deliver entire website, streaming, etc using
+            global network of edge locations
+        Edge Location - 
+            - location where content will be cached
+            - can be READ and WRITE also
+        Origin - 
+            - originin of all files CDN distributes
+            - can be either S3, EC2, ELB, or Route53
+        Content Delivery Network (CDN) - system of distributed servers (networks)
+            that deliver webpages and other web content to a user based on the
+            geographic locations of the user, origin of the webpage, 
+            and a content delivery servers
+        Distribution - 
+            - the name given the CDN
+            - collection of Edge locations
+            Web Distribution - used for website
+            RTMP Distribution (Real-time messaging protocol) - used for Media Streaming
+        TTL (Time To Live) - time that objects can live in cache
+        Invalidating the cached - delete objects from CloudFront's Origin
+
 Billing Alarm
 
 S3
