@@ -138,4 +138,24 @@ Encrypted Root Device - Root Device Volume = RDV
     =>Only uncrypted snapshots are sharable (with other accounts or public)
     =>Can encrypt root device volumes while creating EC2 instance
 
-Spot Instances and Spot Fleets      
+Spot Instances and Spot Fleets
+    Spot Instance - set a price cap, if the price goes above the cap, instance will be
+        terminated in 2 minutes
+    Spot block - to block Instance from termination when price go above cap between
+        1 to 6 hours
+    Request type: One-time vs Persistent
+        One time - when price goes above price cap -> closed Spot Instance
+        Persistent - when price goes above price cap -> stop Spot Instance until price
+                                                        goes below cap then relaunch 
+    Spot Fleets - a collection of Spot Instances, optionally On-Demand instances
+        Spot Fleets will try to match the target capacity with price restraints
+            - setup launch pools (define EC2 instance type)
+            - can have multiple pools, Fleet will choose the best way to implement 
+                depending on the strategy
+            - Fleet will stop launching instances once reach price threshold or capacity desire
+        Strategy: capacityOptimized, lowestPrice, diversified, InstancePollsToUseCount
+            capacityOptimized - pick the most optimized instance to lauch
+            lowestPrice - choose the lowest price instance to launch
+            diversified - distributed across all pools
+            InstancePollsToUseCount - diversified + lowestPrice
+    
