@@ -215,3 +215,27 @@ EFS - Elastic File system
         - Mount EFS on each EC2 instance
             + sudo mount -t efs -o tls fs-xxxxxxxx:/ /var/www/html
 
+FSx for Windows
+    - Amazon FSx for Windows FS provides fully managed native Microsoft Windows FS
+    - To easily move Windows-based applications that require file storage to AWS
+        For example: Sql Server, Active Directory, IIS, Sharepoint
+    - built in Windows Server
+                ==================                                ==================
+                    Windows FSx                                         EFS
+    =========================================================================================================
+    => runs Windows Server Message Block (SMB)-based        => managed NAS filer for EC2 instances based on
+        file services                                           Network File System (NFS) version 4
+    => designed for Windows and Windows applications        => one of the first network file sharing protocols
+    => support AD users, access control list, groups,           native to Unix and Linux
+        and security policies with Distributed File
+        System (DFS) namespaces and replications
+
+FSx for Lustre
+    - Amazon FSx for Lustre is a fully managed file system that is optimized for compute-intesive workloads
+        + HPC - high performance Computing
+        + ML - machine learning
+        + EDA - Electronic design automation
+        + Media data processing
+    - a file system that can process massive data sets at gigabytes per second of throughputs, millions of IOPS, sub-ms latencies
+        
+
