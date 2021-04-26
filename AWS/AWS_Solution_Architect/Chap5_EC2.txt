@@ -180,3 +180,19 @@ IAM roles - enable AWS resource access to users without sharing private keys
             (EC2, S3, etc.) without having to 'aws configure'. If this those instances with this particular roll got hack, we simply change the roll
             permission. We don't have to go inside each EC2 instance to clean out .aws folder.
 
+Boot Strap Scripts
+    a script that run when EC2 boot up to automatically install, update software, etc.
+    How:
+        Upon EC2 lauching
+            - Assign IAM Roll: to make sure this EC2 can make API to other resource
+            - Expand Advance:
+                #!/bin/bash
+                yum update -y
+                yum install httpd -y
+                service httpd start
+                chkconfig httpd on
+                cd /var/www/html
+                echo "<html><h1>Hello Cloud Gurus Welcome To My Webpage</h1></html>" > index.html
+                aws s3 mb s3://YOURBUCKETNAMEHERE
+                aws s3 cp index.html s3://YOURBUCKETNAMEHERE
+
