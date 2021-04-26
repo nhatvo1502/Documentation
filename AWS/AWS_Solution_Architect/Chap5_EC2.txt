@@ -196,3 +196,11 @@ Boot Strap Scripts
                 aws s3 mb s3://YOURBUCKETNAMEHERE
                 aws s3 cp index.html s3://YOURBUCKETNAMEHERE
 
+Instance Metadata
+    curl http://169.254.169.254/latest/meta-data/
+    curl http://169.254.169.254/latest/user-data
+    To write it on text: > bootstrap.txt
+
+EFS - Elastic File system
+    - is a file storage service to connect more than one EC2 instance at a time (EBS can do 1 on 1)
+    - has elastic capacity: growing and shrinking automatically
