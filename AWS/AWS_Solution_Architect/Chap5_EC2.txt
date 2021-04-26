@@ -203,4 +203,15 @@ Instance Metadata
 
 EFS - Elastic File system
     - is a file storage service to connect more than one EC2 instance at a time (EBS can do 1 on 1)
-    - has elastic capacity: growing and shrinking automatically
+    - has elastic capacity: growing and shrinking automatically (on the fly - no provisioning)
+    How/Lab
+        - Create 2 EC2 instances 
+            + with a same EC2-sg
+            + install EFS utilities on 2 instances: yum install -y amazon-efs-utils
+        - Create EFS 
+            + with default VPC (has default VPC security group)
+        - Open default VPC-sg to EC2-sg
+            + under EC2 > Network&Security > Security Groups > VPC-sg > Inbound > NFS, TCP, 2049, EC2-sg
+        - Mount EFS on each EC2 instance
+            + sudo mount -t efs -o tls fs-xxxxxxxx:/ /var/www/html
+
