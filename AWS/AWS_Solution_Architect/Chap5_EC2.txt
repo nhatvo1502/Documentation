@@ -170,3 +170,13 @@ EC2 hibernation
     Instance RAM must be < 150GB
     Can't be hibernate > 60 days
     Available for On-Demand instances and Reserved Instances
+
+CloudWatch 101
+
+IAM roles - enable AWS resource access to users without sharing private keys
+    Why? - To control AWS resources on an EC2 instance, one have to 'aws configure' their credential in. If the .aws folder got hack, hacker
+            will now have access to everything else.
+    Solution- the idea is to give one EC2 instance a roll (permission) that whoever CLI into this instance can control/call API to other resources
+            (EC2, S3, etc.) without having to 'aws configure'. If this those instances with this particular roll got hack, we simply change the roll
+            permission. We don't have to go inside each EC2 instance to clean out .aws folder.
+
