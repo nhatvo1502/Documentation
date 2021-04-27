@@ -1,0 +1,39 @@
+Dababases 101
+    1. Relastional databases on AWS
+        -> SQL Server
+        -> Oracle
+        -> MySQL Server (what we use for this lab)
+        -> PostgreSQL
+        -> Aurora
+        -> MariaDB
+
+        Key features:
+            - Multi-AZ 
+                -> Disaster Recovery for HA DB
+                -> Good for important DB
+                -> Failover automatically:
+                    + EC2 connect to Primary DB via connecting DNS string 
+                    + When Primary DB is down, AWS will automatically create/update another connecting DNS string from EC2 to 
+                        the Secondary DB
+            - Read Replicas 
+                -> Performance DB
+                -> Good for DB has huge read requests
+                -> Failover isn't auto:
+                    + EC2 connect to Primary DB via connecting DNS string 
+                    + When Primary is down, user have to create new URL + manually update DNS on Read Replicas DB
+    2. Non Relational Databases
+        -> 
+    3. Relational DB vs Non-relational DB
+    4. Data Warehousing
+        -> use for Business Intelligence BI
+        -> use to pull in large complex data sets
+        -> for management do queries on data
+        Online Transaction Processing (OLTP) vs Online Analytics Processing (OLAP)
+            OLTP:
+                -> small, specific query
+                -> contain specific product ID, personal info, etc.
+            OLAP:
+                -> big, complex number of queries
+                -> pull in large number of records
+        -> use different type of Architecture both from database perspective and infrastructure Layer
+        -> AWS Redshift

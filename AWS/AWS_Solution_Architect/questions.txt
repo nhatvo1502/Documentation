@@ -4,3 +4,5 @@ AMI Types (EBS vs Instance Store)
 EC2 Placement Group => Partitioned usecase
 
 ENI vs Enhanced Network vs Elastic Fabric Adaptor
+
+Relational DB vs Non relational DB
