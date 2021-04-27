@@ -238,4 +238,21 @@ FSx for Lustre
         + Media data processing
     - a file system that can process massive data sets at gigabytes per second of throughputs, millions of IOPS, sub-ms latencies
         
-
+EC2 Placement Groups
+    Clustered Placement Group - low network latency + high throughput
+        - Grouping EC2 instances in a single AZ
+        - Low latency, high network through production
+        - Vulnerable to hardware failure
+    Spread Placement Group - critical instances + HA
+        - Spread EC2 instances onto multiple AZ (same Region)
+        - Protect from hardware failures
+    Partitioned Placement Group - Multiple instances HDFS, HBase, Cassandra
+        - Spread group of EC2 instances onto multiple AZ (same region) (combine Clustered and Spreaded together)
+        - Have the benefit of both
+    => Clustered can't span multiple AZs
+    => Spreaded and Partitioned can
+    => recommended homogenous instances with in Clustered
+    => can't merge placement groups
+    => can move existing instance into placement group  
+        + must be at stopped STATEFUL
+        + must use AWS CLI or AWS SDK, no console yet
