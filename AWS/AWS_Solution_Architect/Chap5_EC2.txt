@@ -256,3 +256,45 @@ EC2 Placement Groups
     => can move existing instance into placement group  
         + must be at stopped STATEFUL
         + must use AWS CLI or AWS SDK, no console yet
+
+High Performance Computing HPC
+    Data Transfer:
+        - Snowball, Snowmobile
+        - AWS DataSync (store to S3, EFS, FSx, etc.)
+        - Direct connect
+    Compute:
+        - EC2 instance CPU/GPU Optimized
+        - EC2 Fleet (Spot/Spot Fleets)
+        - Placement Groups (Clustered only)
+    Networking:
+        - Enchanced Networking SR-IOV
+            -> using SR-IOV (single root IO virtualization), high throughput, lower CPU utilization
+            -> provides higher bandwidth, packet per second PPS + low latencies
+            -> no extra charge for Enchanced Networking in AWS
+        - Elastic Network Adapters (ENA=100Gbps, VF=10Gbps)
+            -> ENA = Elaster Network Adapter 
+            -> VF = Intel 82599 Virtual Function (legacy flavor)
+        - Elastic Fabric Adapters (Linux only)
+            -> an attachable network device to accelerate HPC/ML
+            -> OS-bypass = enables HPC/ML applications to bypass OS kernel - communicate directly with EFA device (Linux only)
+            -> lower + consistent latency, high throughput vs TCP transport
+    Storage:
+        What are te storage services that allow us to achive HPC on AWS?
+        - Instance-attached storage:
+            - EBS 
+                -> up to 64,000 IOPS with Provisioned IOPS
+            - Instance Store 
+                -> scale to millions IOPS, low ms
+        - Network storage:
+            -> S3 (not a file system)
+            -> EFS (Elastic File System)
+            -> FSx for Lustre: HPC-optimized distributed FS, millions of IOPs, backed by S3
+    Orchestration:
+        - AWS Batch: 
+            -> support multi-node parallel jobs - run single job span all EC2 instances
+            -> schedule jobs and launch EC2 instances on-demands
+        - AWS ParallelCluster:
+            -> is cluster management tool to deploy + manage HPC clusters
+            -> open-source
+            -> simple text file to model/provision HPC resources
+            -> automate creation: VPC, subnet, cluster type, instance type
