@@ -353,4 +353,9 @@ AWS WAF - Web Applcation Firewall
         - Strings in requests: specific strings, or string match with expression (regex) patterns
         - request length
         - presence of SQL code (SQL injection), script (cross-site scripting)
+
+Quiz
+    What hypervisor EC2 hosted on?
+        -> Xen
+        -> Nitro-hypervisor
     
