@@ -298,3 +298,20 @@ High Performance Computing HPC
             -> open-source
             -> simple text file to model/provision HPC resources
             -> automate creation: VPC, subnet, cluster type, instance type
+
+AWS WAF - Web Applcation Firewall
+    - is a web application firewall (Layer 7)
+    - monitor HTTP and HTTPS requests forwarded to CloudFront, Application Load Balancer (ALB), or API Gateway
+    - to control access to my content
+    How?
+        - configure conditions:
+            -> what IP addresses are allowed to make requests
+            -> what query string parameters need to be passed for the requests
+            -> etc.
+        - then ALB/CloudFront/API_Gateway will either:
+            -> Allow = release content
+            -> Denied = HTTP 403 Status Code
+    3 different behaviours"
+        1. Allow all requests except specifies
+        2. Block all requests except specifies
+        3. Passive mode: Count the requests that match with specifies
