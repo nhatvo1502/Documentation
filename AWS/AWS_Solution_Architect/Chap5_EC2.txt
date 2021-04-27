@@ -25,19 +25,20 @@ EC2
         U - Bare metal
 
 First EC2 instance
-    Termination Protection is off by default, must turn on  
+    EBS Termination Protection is off by default, must turn on  
     EC2's root drive will be deleted when the instance is terminated
     EBS Root Volume of default AMI can be encrypted
 
-Security Lab
+Security Group
     All inbound traffic is blocked by default
     All outbound traffic is allowed
     Changes to Security Groups take effect immediately
     EC2 to Security Group is many-to-many:
         A Security Group can be added to multiple EC2 instances 
         An EC2 instance can have more than one Security Group
-    Security Group is STATEFUL: 
+    Security Group is STATEFUL 
         If you create an inbound rule allowing traffic in, that traffic is automatically allowed back out again
+        -> If you open port 80 for inbound, the outbound of port 80 will automatically open 
     Cannot block IP addresses using Security Group, instead NACL
     CAN allow rules, CANNOT deny rules
 
@@ -72,6 +73,11 @@ EBS Snapshots
 EBS Volume migration
     - to move EC2 volume from one AZ/Region to another
     How: take a snapshot -> create an AMI from the snapshot -> move the AMI to another AZ/Region -> launch the EC2 from that AMI
+    - Snapshots:
+        -> Snapshots of encrypted volumes are encrypted automatically (use this to encrypt an unencrypted instance)
+        -> Volume restored from encrypted snapshots are encrypted automatically (use this to encrypt an unencrypted instance)
+        -> encrypted snapshots are sharable 
+        -> shared snapshots can be share with other accounts or made public
 
 AMI Types (EBS and Snapshots)
     - To spin up an AMI, user must choose: 
@@ -83,17 +89,17 @@ AMI Types (EBS and Snapshots)
             +Instance Store (EPHEMERAL STORAGE):    root device is instance store volume created from a template stored in S3
             +EBS Backed Volumes:                    root device is EBS volume created from EBS snapshots
     - Instance Store Volume vs EBS Volumes:
-        +Instance Store Volume (Instance Backed)
-            = Ephemeral Storage: volatile temporary storage  
-            = Cannot be stopped
-            = If host failed, lose data
-            = Root will be deleted on Termination
-        +EBS Volume:
-            = Can be stopped
-            = Will not lose data
-            = Root will be deleted on Termination, can tell AWS to keep root 
+        - Instance Store Volume (Instance Backed)
+            -> Ephemeral Storage: volatile temporary storage  
+            -> Cannot be stopped
+            -> If host failed, lose data
+            -> Root will be deleted on Termination
+        - EBS Volume:
+            -> Can be stopped
+            -> Will not lose data if the instance stop/terminated
+            -> Root will be deleted on Termination, can tell AWS to keep root 
 
-ENI - Elastick Network Interface: (For basica networking, sepera dfefete management network, low cost)
+ENI - Elastick Network Interface: (For basic networking, sepera dfefete management network, low cost)
     - a locagical network card
     - a component of VPC
     - a primary private IPv4
@@ -112,7 +118,7 @@ EN - Enhanced Networking (Need speed 10Gpbs - 100Gbps, reliable-high throughput)
     - use single root I/O virtualization (SR-IOV) 
     - requires supported instances
     - no extra charge
-    ENA vs VF:
+    Elastic Network Adapter vs Virtual Function
         - ENA: Elastic Network Adapter, support newer instance type, up to 100 Gbps
         - VF: Intel 82599 Virtual Function, support older instance type, up to 10 Gbps
 
@@ -128,10 +134,10 @@ Encrypted Root Device - Root Device Volume = RDV
     Can you encrypte root device? - Before, no. Now, yes.
     How: Encrypt root device while creating new instance
     If the instance root device created unencrypted, you have to:
-        - Create a Snapshot on unencrypted RDV
-        - Copy that Snapshot and encrypted 
-        - Create an AMI from encrypted Snapshot
-        - Use that AMI to launch a new encrypted instance
+        1. Create a Snapshot on unencrypted RDV
+        2. Copy that Snapshot + select encrypted 
+        3. Create an AMI from encrypted Snapshot
+        4. Use that AMI to launch a new encrypted instance
         *To delete the encrypted Snapshot, must delete the AMI associates with it first
     =>Snapsots of encrypted volumes are encrypted automatically
     =>Volumes restored from encrypted Snapshots are encrypted automatically
@@ -171,17 +177,36 @@ EC2 hibernation
     Can't be hibernate > 60 days
     Available for On-Demand instances and Reserved Instances
 
-CloudWatch 101
+CloudWatch
+    -> monitoring performance of AWS resources
+    -> monitor applications run on AWS
+    -> with EC2 will monitor events every 5 minutes (Standard - default) and 1 minute (Detailed Monitoring - not free)
+    -> Alarms = trigger notifications
+    -> Dashboard = custom what to monitor 
+    -> Events = respond to state changes in AWS resources
+    -> Logs = logs
+    -> CloudWatch(performance) vs CloudTrail(auditing)
+        -> CloudWatch monitor performance (resource, applications resource use)
+        -> CloudTrail monitor API calls (users activities)
+
+CLI
+    -> command line to interact with AWS from anywhere
+    -> created from IAM
 
 IAM roles - enable AWS resource access to users without sharing private keys
-    Why? - To control AWS resources on an EC2 instance, one have to 'aws configure' their credential in. If the .aws folder got hack, hacker
-            will now have access to everything else.
-    Solution- the idea is to give one EC2 instance a roll (permission) that whoever CLI into this instance can control/call API to other resources
+    Why roles:
+        -> more secure than storing access key and secret access key on individual EC2 instances
+        -> easier to manage
+        -> can be assigned to EC2
+        -> created by console & conmand line (access key and secret access key can only be created via console IAM)
+        -> universal - can be used Global
+    *Solution- the idea is to give one EC2 instance a roll (permission) that whoever CLI into this instance can control/call API to other resources
             (EC2, S3, etc.) without having to 'aws configure'. If this those instances with this particular roll got hack, we simply change the roll
             permission. We don't have to go inside each EC2 instance to clean out .aws folder.
 
-Boot Strap Scripts
-    a script that run when EC2 boot up to automatically install, update software, etc.
+Bootstrap Scripts
+    - Bootstrap Script runs when EC2 first boot
+    - Automating software install and updates = POWERFUL
     How:
         Upon EC2 lauching
             - Assign IAM Roll: to make sure this EC2 can make API to other resource
@@ -201,9 +226,15 @@ Instance Metadata
     curl http://169.254.169.254/latest/user-data
     To write it on text: > bootstrap.txt
 
-EFS - Elastic File system
+EFS Elastic File system
     - is a file storage service to connect more than one EC2 instance at a time (EBS can do 1 on 1)
-    - has elastic capacity: growing and shrinking automatically (on the fly - no provisioning)
+    - elastic capacity = grow/shrink automatically 
+    - pay-as-you-go
+    - no pre-provisioning
+    - can scale to petabytes
+    - support thousands of concurrent NFS connections (vs EBS)
+    - store data across multi-AZs within a Region
+    - Read-after-write Consistency
     How/Lab
         - Create 2 EC2 instances 
             + with a same EC2-sg
@@ -221,7 +252,7 @@ FSx for Windows
         For example: Sql Server, Active Directory, IIS, Sharepoint
     - built in Windows Server
                 ==================                                ==================
-                    Windows FSx                                         EFS
+                    Windows FSx                                         EFS (Linux)
     =========================================================================================================
     => runs Windows Server Message Block (SMB)-based        => managed NAS filer for EC2 instances based on
         file services                                           Network File System (NFS) version 4
@@ -230,7 +261,7 @@ FSx for Windows
         and security policies with Distributed File
         System (DFS) namespaces and replications
 
-FSx for Lustre
+FSx for Lustre (HPC/ML)
     - Amazon FSx for Lustre is a fully managed file system that is optimized for compute-intesive workloads
         + HPC - high performance Computing
         + ML - machine learning
@@ -238,15 +269,15 @@ FSx for Lustre
         + Media data processing
     - a file system that can process massive data sets at gigabytes per second of throughputs, millions of IOPS, sub-ms latencies
         
-EC2 Placement Groups
-    Clustered Placement Group - low network latency + high throughput
+EC2 Placement Groups (Clustered vs Spread vs Partitioned)
+    1. Clustered Placement Group - low network latency + high throughput
         - Grouping EC2 instances in a single AZ
         - Low latency, high network through production
         - Vulnerable to hardware failure
-    Spread Placement Group - critical instances + HA
+    2. Spread Placement Group - critical instances + HA
         - Spread EC2 instances onto multiple AZ (same Region)
         - Protect from hardware failures
-    Partitioned Placement Group - Multiple instances HDFS, HBase, Cassandra
+    3. Partitioned Placement Group - Multiple instances HDFS, HBase, Cassandra
         - Spread group of EC2 instances onto multiple AZ (same region) (combine Clustered and Spreaded together)
         - Have the benefit of both
     => Clustered can't span multiple AZs
@@ -315,3 +346,11 @@ AWS WAF - Web Applcation Firewall
         1. Allow all requests except specifies
         2. Block all requests except specifies
         3. Passive mode: Count the requests that match with specifies
+    Protech agaisnt web attacks using conditions. Such as:
+        - requestor IP addresses
+        - requestor Country
+        - Values in headers
+        - Strings in requests: specific strings, or string match with expression (regex) patterns
+        - request length
+        - presence of SQL code (SQL injection), script (cross-site scripting)
+    
