@@ -1,13 +1,13 @@
 Dababases 101
     1. Relastional databases on AWS
-        -> SQL Server
-        -> Oracle
-        -> MySQL Server (what we use for this lab)
-        -> PostgreSQL
-        -> Aurora
-        -> MariaDB
-
-        Key features:
+        Supported DB:
+            -> SQL Server
+            -> Oracle
+            -> MySQL Server (what we use for this lab)
+            -> PostgreSQL
+            -> Aurora
+            -> MariaDB
+        Types: Multiple AZs vs Read Replicas
             - Multi-AZ 
                 -> Disaster Recovery for HA DB
                 -> Good for important DB
@@ -37,3 +37,9 @@ Dababases 101
                 -> pull in large number of records
         -> use different type of Architecture both from database perspective and infrastructure Layer
         -> AWS Redshift
+
+RDS
+    -> runs on virtual machines
+    -> cannot ssh (or remoting)
+    -> cannot login to patching (AWS responsibility)
+    -> RDS is serverless
