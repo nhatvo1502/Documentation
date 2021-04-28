@@ -43,3 +43,24 @@ RDS
     -> cannot ssh (or remoting)
     -> cannot login to patching (AWS responsibility)
     -> RDS is serverless
+
+RDS Backups - Automated Backups vs Database snapshots
+    Automated Backups:
+        -> allow to recover db to any point in time within Retention Period
+        -> Retention Period 1-35 days
+        -> How:
+            -> Automated Backups take: full daily snapshots + store daily transaction logs
+            -> recover: choose the most recent daily backup -> apple transaction logs 
+        -> allow to recover a point in time recovery down to a second
+        -> enable by default
+        -> backups store in S3 for free
+        -> S3 size = DB size
+        -> during backups, I/O may suspend or elevated latency
+    Snapshots
+        -> manual
+        -> save after DB is deleted
+        -> restore DB from snapshot will be restored on different endpoint
+
+Encryption At Rest
+    
+
