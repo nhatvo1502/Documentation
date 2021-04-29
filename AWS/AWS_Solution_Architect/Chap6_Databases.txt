@@ -118,3 +118,77 @@ Dynamo DB - AWS Non Relational Database
     -> spread across 3 geographically disctint data center
     -> Eventual Consistent Read: read after write within 1 second - Best read performance
     -> Strongly Consistent Read:  read after write less than 1 second
+
+Advanced DynamoDB
+    DynamoDB Accelerator (DAX)
+        -> managed, HA, in-memory cache
+        -> 10x performance improvement compares to using DynamoDB
+        -> reduce request time from milliseconds to microseconds (even under load)
+        -> no need to managed caching locagical
+        -> combatiple with exist DynamoDB APIs call
+        - Traditional caching vs DAX caching:
+            -> Traditional:
+                + Cache sit off to the side of the application
+                + Have to be managed
+                + Only support read
+            -> DAX:
+                + Cache sit between application and DynamoDB
+                + No need to be managed
+                + Write-through-cache support write
+                + HA
+
+    Transactions
+        The problems: In all-for-nothing operations, some requests have to happen at the same time
+            simutaneously where one fail to happen the other will also fail to happen
+        Example: Financial transactions (credit-debit), Fullfilling orders (E-commerce)
+        The solutions: 
+            -> DynamoDB will perform read or write -> prepare/commit
+            -> consume more capacity
+            -> up to 25 items or 4MB of data
+
+    On-Demand Capacity
+        Pay-per-request pricing vs Provisioning pricing
+            Per-per-request:
+                Only pay what you use
+                Easy to balance cost and performance
+                No minimum capacity
+            Provisioning
+                Change on storage and backups - no charge for read-write
+        -> Pay-per-request is more expensive, use for new product launches, when it stable, change to Provisioning
+
+    On-Demand Backup and Restore
+        -> Full backups at anytime
+        -> zero impact on table performance and availability (unlike RDS)
+        -> consistent within seconds + retained until deleted
+        -> operate within same region only
+        
+        Point-in-Time Recovery (PITR)
+            -> to protect agaisnt accidental writes or deletes
+            -> restores within 35 days
+            -> incremental backups
+            -> not enable by default
+            -> latest restorable = 5 minutes
+    
+    Stream - Time-ordered sequence of item-level changes in a table
+        DynamoDB Stream (Shard(Stream Records))
+            -> A DynamoDB(Shard1, Shard2, Shard3, Shardn)
+                    Shard(StreamRecords1, StreamRecords2, StreamRecordsn)
+        -> Store for 24 hours
+        -> Insert, updates, and deletes
+        -> combine with lambda
+    
+    Global Tables
+        -> globally distributed applications
+        -> based on DynamoDB streams
+        -> muti-region redundancy for Disaster Recovery or HA
+        -> no application rewrites
+        -> replication latency under 1 second
+
+    Database Migration Service (DMS)
+        -> to migrate one database to another
+        -> support Source database: on-prem, EC2, RDS, Aurora, S3, DB2, MariaDB, AzureDB, SQL Server
+                                                    MongoDB, MySQL, Oracle, PostgreSQL, Sybase
+        -> support Target database: on-prem, EC2, RDS, Aurora, DocumentDB, DynamoDB, Kinesis, Redshift,
+                                                    S3, Elasticsearch, Kafka, MariaDB, SQL Server, MySQL
+                                                    Oracle, PostgreSQL, Sybase
+        -> source database remains operational
