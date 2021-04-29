@@ -8,16 +8,43 @@ Dababases 101
             -> Aurora
             -> MariaDB
         Types: Multiple AZs vs Read Replicas
-            - Multi-AZ 
-                -> Disaster Recovery for HA DB
-                -> Good for important DB
-                -> Failover automatically:
+            - Multi-AZ - to have an exact copy of the production database in another AZ
+                + AWS handles replication: 
+                    -> writting on production database will automatically be synchronized to the 2nd/stand-by database
+                + failover when:
+                    -> database maintenance
+                    -> database instance failure
+                    -> AZ failure
+                + failover how:
+                    -> AWS will automatically update the IP address to the stand-by database - still using
+                        the current DNS string (AWS will handle failover)
+                    -> operation can resume quickly - less downtime
+                    -> requires no administrative intervention
+                + why:
+                    -> Disaster Recovery for HA DB
+                    -> Good for important DB
+                + Failover automatically:
                     + EC2 connect to Primary DB via connecting DNS string 
                     + When Primary DB is down, AWS will automatically create/update another connecting DNS string from EC2 to 
                         the Secondary DB
-            - Read Replicas 
-                -> Performance DB
-                -> Good for DB has huge read requests
+                + Supported database: everything but Aurora (Aurora has its own faul-tolerence)
+                    SQL Server, Oracle, MySQL Server, PostgreSQL, MariaDB
+            - Read Replicas - create multiple RDS replica to handle high read requests
+                + High Read requests:
+                    -> Some database has a lot of Read traffic that can bottle neck its resource/network
+                + Solution:
+                    -> Replicate the Primary database to multiple read-only database instances - Asynchronous Replication
+                    -> Redirect all the Read Requests pan out on all the Read-Replicas database instances
+                    -> Only write to the Primary so that it can be replicated our to Replicas - Asynchronous Replication
+                -> used for scaling not recovery
+                -> must have automatic backups turned on to deploy a read replica
+                -> can have up to 5 read replica copies per database
+                -> can have Read-replica of Read-replica (watchout for latency)
+                -> Each RR has its own DNS endpoint (unlike Multi-AZ)
+                -> RR can be Multi-AZ
+                -> RR can be created on Multi-AZ databases
+                -> RR can be promoted to be their own data but replication will be breaks
+                -> RR can be created in second Region
                 -> Failover isn't auto:
                     + EC2 connect to Primary DB via connecting DNS string 
                     + When Primary is down, user have to create new URL + manually update DNS on Read Replicas DB
@@ -50,17 +77,29 @@ RDS Backups - Automated Backups vs Database snapshots
         -> Retention Period 1-35 days
         -> How:
             -> Automated Backups take: full daily snapshots + store daily transaction logs
-            -> recover: choose the most recent daily backup -> apple transaction logs 
+            -> recover: choose the most recent daily backup -> apply transaction logs 
         -> allow to recover a point in time recovery down to a second
         -> enable by default
         -> backups store in S3 for free
         -> S3 size = DB size
-        -> during backups, I/O may suspend or elevated latency
+        -> during backups window, I/O may suspend or elevated latency
     Snapshots
-        -> manual
+        -> manual (not automate)
         -> save after DB is deleted
-        -> restore DB from snapshot will be restored on different endpoint
+        -> restoring a snapshot will be restored on a new RDS instance with a new DNS endpoint
 
 Encryption At Rest
-    
+    - Supported on:
+        + MySQL
+        + Oracle
+        + SQL Server
+        + PostgreSQL
+        + MariaDB
+        + Aurora
+    - using Key Management Service (KMS)
+    - once RDS instance is encrypted -> all data stored at rest underlying storage is also encrypted:
+        + automated backup
+        + read Replicas
+        + snapshots
+
 
