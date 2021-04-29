@@ -1,5 +1,12 @@
 Dababases 101
     1. Relastional databases on AWS
+        -> runs on virtual machines
+        -> cannot ssh (or remoting)
+        -> cannot login to patching
+            RDS vs EC2 patching responsibility:
+                -> RDS: AWS responible to path both OS and database
+                -> EC2: share responsibility 
+        -> RDS is NOT serverless (Aurora is serverless)
         Supported DB:
             -> SQL Server
             -> Oracle
@@ -64,12 +71,6 @@ Dababases 101
                 -> pull in large number of records
         -> use different type of Architecture both from database perspective and infrastructure Layer
         -> AWS Redshift
-
-RDS
-    -> runs on virtual machines
-    -> cannot ssh (or remoting)
-    -> cannot login to patching (AWS responsibility)
-    -> RDS is serverless
 
 RDS Backups - Automated Backups vs Database snapshots
     Automated Backups:

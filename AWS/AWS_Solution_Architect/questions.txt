@@ -6,3 +6,5 @@ EC2 Placement Group => Partitioned usecase
 ENI vs Enhanced Network vs Elastic Fabric Adaptor
 
 Relational DB vs Non relational DB
+
+Wordpress - what is it exactly?
