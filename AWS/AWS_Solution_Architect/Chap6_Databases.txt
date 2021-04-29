@@ -72,35 +72,35 @@ Dababases 101
         -> use different type of Architecture both from database perspective and infrastructure Layer
         -> AWS Redshift
 
-RDS Backups - Automated Backups vs Database snapshots
-    Automated Backups:
-        -> allow to recover db to any point in time within Retention Period
-        -> Retention Period 1-35 days
-        -> How:
-            -> Automated Backups take: full daily snapshots + store daily transaction logs
-            -> recover: choose the most recent daily backup -> apply transaction logs 
-        -> allow to recover a point in time recovery down to a second
-        -> enable by default
-        -> backups store in S3 for free
-        -> S3 size = DB size
-        -> during backups window, I/O may suspend or elevated latency
-    Snapshots
-        -> manual (not automate)
-        -> save after DB is deleted
-        -> restoring a snapshot will be restored on a new RDS instance with a new DNS endpoint
-
-Encryption At Rest
-    - Supported on:
-        + MySQL
-        + Oracle
-        + SQL Server
-        + PostgreSQL
-        + MariaDB
-        + Aurora
-    - using Key Management Service (KMS)
-    - once RDS instance is encrypted -> all data stored at rest underlying storage is also encrypted:
-        + automated backup
-        + read Replicas
-        + snapshots
+RDS - Relational Database Service
+    Backups - Automated Backups vs Database snapshots
+        Automated Backups:
+            -> allow to recover db to any point in time within Retention Period
+            -> Retention Period 1-35 days
+            -> How:
+                -> Automated Backups take: full daily snapshots + store daily transaction logs
+                -> recover: choose the most recent daily backup -> apply transaction logs 
+            -> allow to recover a point in time recovery down to a second
+            -> enable by default
+            -> backups store in S3 for free
+            -> S3 size = DB size
+            -> during backups window, I/O may suspend or elevated latency
+        Snapshots
+            -> manual (not automate)
+            -> save after DB is deleted
+            -> restoring a snapshot will be restored on a new RDS instance with a new DNS endpoint
+    Encryption At Rest
+        - Supported on:
+            + MySQL
+            + Oracle
+            + SQL Server
+            + PostgreSQL
+            + MariaDB
+            + Aurora
+        - using Key Management Service (KMS)
+        - once RDS instance is encrypted -> all data stored at rest underlying storage is also encrypted:
+            + automated backup
+            + read Replicas
+            + snapshots 
 
 
