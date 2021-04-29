@@ -8,3 +8,5 @@ ENI vs Enhanced Network vs Elastic Fabric Adaptor
 Relational DB vs Non relational DB
 
 Wordpress - what is it exactly?
+
+Strongly Consistent Read vs Eventual Consistent Read
