@@ -74,7 +74,7 @@ Dababases 101
 
 
 
-RDS - Relational Database Service
+RDS - Relational Database Service OLTP
     Backups - Automated Backups vs Database snapshots
         Automated Backups:
             -> allow to recover db to any point in time within Retention Period
@@ -105,7 +105,7 @@ RDS - Relational Database Service
             + read Replicas
             + snapshots 
 
-Dynamo DB - AWS Non Relational Database
+DynamoDB (NoSQL) - Non Relational Database
     What is Dynamo DB?
         - Fast and flexible NoSQL database service
         - For apps needs: consistent, single-digit millisecond latency
@@ -125,7 +125,7 @@ Advanced DynamoDB
         -> 10x performance improvement compares to using DynamoDB
         -> reduce request time from milliseconds to microseconds (even under load)
         -> no need to managed caching locagical
-        -> combatiple with exist DynamoDB APIs call
+        -> compatible with exist DynamoDB APIs call
         - Traditional caching vs DAX caching:
             -> Traditional:
                 + Cache sit off to the side of the application
@@ -137,7 +137,7 @@ Advanced DynamoDB
                 + Write-through-cache support write
                 + HA
 
-    Transactions
+    Transactions requests - The issue and AWS's solution
         The problems: In all-for-nothing operations, some requests have to happen at the same time
             simutaneously where one fail to happen the other will also fail to happen
         Example: Financial transactions (credit-debit), Fullfilling orders (E-commerce)
@@ -146,14 +146,13 @@ Advanced DynamoDB
             -> consume more capacity
             -> up to 25 items or 4MB of data
 
-    On-Demand Capacity
-        Pay-per-request pricing vs Provisioning pricing
-            Per-per-request:
-                Only pay what you use
-                Easy to balance cost and performance
-                No minimum capacity
-            Provisioning
-                Change on storage and backups - no charge for read-write
+    On-Demand Capacity / Pricing
+        Per-per-request:
+            Only pay what you use
+            Easy to balance cost and performance
+            No minimum capacity
+        Provisioning
+            Charge on storage and backups - no charge for read-write
         -> Pay-per-request is more expensive, use for new product launches, when it stable, change to Provisioning
 
     On-Demand Backup and Restore
@@ -204,7 +203,7 @@ Advanced DynamoDB
             -> allow EC2 to connect to DynamoDB's private IP address
             -> no public exposure
 
-Redshift - is AWS solution for Datawarehouse where there is a huge amount of data that need to be queried and processed
+Redshift OLAP - is AWS solution for Datawarehouse where there is a huge amount of data that need to be queried and processed
 
     Redshift configuration: Single Node vs Multi-Node
         -> Single node: 160GB
@@ -279,10 +278,13 @@ Aurora Serverless: is an on-demand, autoscaling configuration for MySQL-compatib
     -> pay per request
     -> powerful database server but cheap
 
-ElasticCache
+ElasticCache - Memcached vs Redis
+    - Two engines: 
+        -> Memchaced: for simple caching
+        -> Redis: for advanced caching
     - a web service that make it easy to deploy, operate, and scale in-mem cache in cloud
     - improves web applications performance by allow information to be retrieved fast, manage, in-mem caches
-    - Memcached vs Redis
+    - Memcached (simple) vs Redis (advanced)
         Requirement                     Memcached       Redis
         =====================================================
         Simple Cache of offload DB      Yes             Yes
