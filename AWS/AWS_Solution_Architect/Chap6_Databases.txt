@@ -343,4 +343,11 @@ Database Migration Service DMS
             -> Elasticsearch service
             -> Kinesis Data streams
             -> DocumentDB
-            
+
+Caching Strategy:
+    Caching is a balancing act between up-to-date, accurate information and latency
+    AWS service has cache:
+        1. CloudFront
+        2. API Gateway
+        3. ElastiCache - Memcached and Redis
+        4. DynamoDB Accelerator (DAX)
