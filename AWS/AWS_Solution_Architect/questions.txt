@@ -10,3 +10,6 @@ Relational DB vs Non relational DB
 Wordpress - what is it exactly?
 
 Strongly Consistent Read vs Eventual Consistent Read
+
+Redshift
+    - Configuration: Leader Node-> How many leader can be created upon a Redshift instance

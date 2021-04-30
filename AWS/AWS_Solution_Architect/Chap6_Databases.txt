@@ -192,3 +192,49 @@ Advanced DynamoDB
                                                     S3, Elasticsearch, Kafka, MariaDB, SQL Server, MySQL
                                                     Oracle, PostgreSQL, Sybase
         -> source database remains operational
+    
+    Security
+        -> KMS encrypt at rest
+        -> Site-to-site VPN
+        -> Direct Connect (DX)
+        -> IAM policies roles
+        -> Fine-grained access
+        -> CloudWatch and CloudTrail
+        -> VPC endpoints
+            -> allow EC2 to connect to DynamoDB's private IP address
+            -> no public exposure
+
+Redshift - is AWS solution for Datawarehouse where there is a huge amount of data that need to be queried and processed
+    Redshift configuration: Single Node vs Multi-Node
+        -> Single node: 160GB
+        -> Multi-Node: 
+            + Leader Node: manages client connections and receives queries
+            + Compute Nodes: store data + perform queries + computations, up to 128 Nodes
+
+    Advanced Compression: automatically compress data
+
+    Massively Parallel Processing (MPP):
+        -> automatically distributes data and query load across all Nodes
+        -> increase Compute Nodes to scale out Redshift
+    
+    *Backups
+        -> Retention period: 1 day (default), 35 days max
+        -> attemps to maintain at least 3 copies: origin + replica (on compute nodes) + a backup (on S3)
+        -> can asynchronously replicate snapshots to S3 in another region (DR)
+
+    Pricing
+        -> Compute Node hours: total number of hours run across all compute nodes for 1 billing period
+            For example: 3 nodes clusrer runs 30 days = 3 * 24 * 30 = 2160 instance hours
+        -> charge backup
+        -> charge data transfer (within VPC only, not outside)
+
+    Security
+        -> Intransit - encrypt SSL
+        -> At rest - encrypt AES-256
+        -> Redshift takes care of key management by default. Can be managed by:
+            + your own keys through Hardware Security Module HSM
+            + AWS KMS
+    
+    availability:
+        -> only in 1 AZ
+        -> can be restore to another AZ from a snapshot
