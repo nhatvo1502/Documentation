@@ -205,6 +205,7 @@ Advanced DynamoDB
             -> no public exposure
 
 Redshift - is AWS solution for Datawarehouse where there is a huge amount of data that need to be queried and processed
+
     Redshift configuration: Single Node vs Multi-Node
         -> Single node: 160GB
         -> Multi-Node: 
@@ -238,3 +239,30 @@ Redshift - is AWS solution for Datawarehouse where there is a huge amount of dat
     availability:
         -> only in 1 AZ
         -> can be restore to another AZ from a snapshot
+
+
+Aurora
+    PostgreSQL = commercial database that handle complex queries and massive database, loads with features - object-relational database(ORDBMS)
+    MySQL = simpler database that easy to set up, manage, fast, reliable - pure relational database (RDBMS)
+    Aurora = PostgreSQL + MySQL + cost effective
+        (5x faster than MySQL, 3x faster than postgreSQL)
+    -> Start with 10GB
+    -> Storage Autoscaling: scale in 10GB increments to 64TB 
+    -> Scaling Aurora:
+        + 2 copies each AZ, minimum 3 AZs => minimum of 6 copies
+        + can transparently handle loss up to 2 copies without effecting write
+        + can transparently handle lose up to 3 copies without effecting read
+    -> Self-healing: data blocks and disks are continuously scanned for erros and repaired automatically
+    -> Aurora Replicas:
+        Comparison
+        features                                    Aurora Replicas                     MySQL                       PostgreSQL
+        ============================================================================================================================
+        Mumber of Replicas                          up to 15                            up to 5                     1
+        Replication type                            Asynchronous(millisecond)           Asynchronous(seconds)
+        Performance impact                          lower                               High
+        Replication location                        In-Region                           Cross-Region
+        Act as failover Target                      Yes (nodata lost)                   Yes (potentially)
+        Automated failover                          Yes                                 No
+        Support user-defined rep delay              No                                  Yes
+        Support different data/schema vs Primary    No                                  Yes
+    
