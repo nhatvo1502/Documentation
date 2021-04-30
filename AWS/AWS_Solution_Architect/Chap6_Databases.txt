@@ -351,3 +351,31 @@ Caching Strategy:
         2. API Gateway
         3. ElastiCache - Memcached and Redis
         4. DynamoDB Accelerator (DAX)
+
+Elastic Map Reduced EMR
+    - solution for big data 
+    - processing vast amounts of data using open-source: Apache Spark, Hive, Flink, Hudi, Presto
+    - petabyte-scale analysis
+    - low cost (less tahn half the cost o traditional on-prem solution)
+
+    -> Central component of EMR is cluster
+        -> a cluster is a collection of EC2 instances
+            -> each instances call a node
+                -> each node has a role (Node Types)
+                -> EMR install different software components on each node
+                -> EMR distributes application work loads on compute nodes
+        -> Node Types:
+            + Mater node:
+                + manges cluster
+                + tracks status of tasks
+                + monitors cluster health
+                + 1 master node per cluster
+            + Core node:
+                + a node with EMR software components (client agents)
+                + run tasks and storage data in HDFS
+                    + HDFS = Hadoop Distributed File System: primary data storage system under Hadoop applications, high-throughput, big data storage
+                + multi-node cluster have at least one core node
+            + Task node: (optional)
+                + has EMR software components (client agents)
+                + only run rasks - no data store
+                + optional   
