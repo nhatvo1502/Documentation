@@ -294,3 +294,24 @@ ElasticCache
         Persistence                     No              Yes
         Multi-AZ                        No              Yes
         Back/restore capabilities       No              Yes
+
+Database Migration Service DMS
+    - cloud service runs replication software
+    - support: Relational Databases, Data Warehouse, NoSQL
+    - support: prem-to-cloud, cloud-to-prem, prem-to-prem
+    - target table:
+        + create manually
+        + use AWS Schema Converstion Tool (SCT)
+    - How:
+        1. DMS take data from Source_database via Source_endpoint (DNS string)
+        2. DMS Replicate the data within a Replication Instance
+        3. DMS Push the data to Target_database through Target_endpoint (DNS string)
+
+                                           AWS DMS
+                        ==================================================
+           Source       ==                                              ==     Target
+           Database     == Source     ->  Replication   ->   Target     ==     Database
+                        == Endpoint         Task             Endpoint   ==
+                        ==                                              ==
+                        ==================================================
+            
