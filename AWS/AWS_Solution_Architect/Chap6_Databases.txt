@@ -249,11 +249,13 @@ Aurora
     -> Start with 10GB
     -> Storage Autoscaling: scale in 10GB increments to 64TB 
     -> Scaling Aurora:
-        + 2 copies each AZ, minimum 3 AZs => minimum of 6 copies
+*        + 2 copies each AZ, minimum 3 AZs => minimum of 6 copies
         + can transparently handle loss up to 2 copies without effecting write
         + can transparently handle lose up to 3 copies without effecting read
-    -> Self-healing: data blocks and disks are continuously scanned for erros and repaired automatically
-    -> Aurora Replicas:
+
+    Self-healing: data blocks and disks are continuously scanned for erros and repaired automatically
+
+*    Aurora Replicas:
         Comparison
         features                                    Aurora Replicas                     MySQL                       PostgreSQL
         ============================================================================================================================
@@ -265,4 +267,18 @@ Aurora
         Automated failover                          Yes                                 No
         Support user-defined rep delay              No                                  Yes
         Support different data/schema vs Primary    No                                  Yes
+
+    Aurora Backups:
+ *       -> Automated backup enabled by default
+        -> Can also take snapshot
+        -> Backup and Snapshots do not impact database performance
+ *       -> Snapshots can be share with other AWS accounts
+
+Aurora Serverless: is an on-demand, autoscaling configuration for MySQL-compatible and PostgreSQL-compatible edition of Amazon Aurora
+    -> Aurora Serverless cluster automatically starts up, shuts down, and scales capacity up/down base on application needs
+ *       -> for simple, cost-effective option for infrequent, intermittent, and/or unpredictable workloads
+        -> use case: host a budget website, that need to be auto-scale up and down and we have no idea how the traffic will look like
+    -> pay per request
+    -> powerful database server but cheap
+
     
