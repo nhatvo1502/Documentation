@@ -364,18 +364,22 @@ Elastic Map Reduced EMR
                 -> each node has a role (Node Types)
                 -> EMR install different software components on each node
                 -> EMR distributes application work loads on compute nodes
-        -> Node Types:
-            + Mater node:
-                + manges cluster
-                + tracks status of tasks
-                + monitors cluster health
-                + 1 master node per cluster
-            + Core node:
-                + a node with EMR software components (client agents)
-                + run tasks and storage data in HDFS
-                    + HDFS = Hadoop Distributed File System: primary data storage system under Hadoop applications, high-throughput, big data storage
-                + multi-node cluster have at least one core node
-            + Task node: (optional)
-                + has EMR software components (client agents)
-                + only run rasks - no data store
-                + optional   
+    -> Node Types:
+        + Mater node:
+            + manges cluster
+            + tracks status of tasks
+            + monitors cluster health
+            + 1 master node per cluster
+        + Core node:
+            + a node with EMR software components (client agents)
+            + run tasks and storage data in HDFS
+                + HDFS = Hadoop Distributed File System: primary data storage system under Hadoop applications, high-throughput, big data storage
+            + multi-node cluster have at least one core node
+        + Task node: (optional)
+            + has EMR software components (client agents)
+            + only run rasks - no data store
+            + optional
+    -> Logs stored in Master Node /mnt/var/log/ -> lost master will lose logs
+        -> configure a cluster to archive logs files from master to S3 to ensure it available after cluster termination
+        -> 5 minutes interval
+        -> upon cluster creation only
