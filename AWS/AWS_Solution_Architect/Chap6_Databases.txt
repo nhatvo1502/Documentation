@@ -299,9 +299,10 @@ Database Migration Service DMS
     - cloud service runs replication software
     - support: Relational Databases, Data Warehouse, NoSQL
     - support: prem-to-cloud, cloud-to-prem, prem-to-prem
+    - can be migrate from another cloud platform
     - target table:
         + create manually
-        + use AWS Schema Converstion Tool (SCT)
+        + use AWS Schema Converstion Tool (SCT) -> to convert one database schema to another during migration
     - How:
         1. DMS take data from Source_database via Source_endpoint (DNS string)
         2. DMS Replicate the data within a Replication Instance
@@ -314,4 +315,32 @@ Database Migration Service DMS
                         == Endpoint         Task             Endpoint   ==
                         ==                                              ==
                         ==================================================
+    - Supported Types:
+        -> homogenous: migrating same database type (ex: Oracle -> Oracle)
+            ===========================================
+            On-prem      <->   EC2 Instance     ->  RDS
+            Database           Running DMS
+            ===========================================
+
+        -> heterogeneous: migrating from one database type to another (SQLServer -> Amazon Aurora) (with Schema Conversion Tool SCT)
+            ===========================================
+            On-prem      <->   EC2 Instance     ->  RDS
+            Database           Running DMS+SCT
+            ===========================================
+
+    - Supported Sources and Targets:
+        -> Sources:  
+            -> On-premise and EC2 instances: Oracle, Microsoft SQL Server, MySQL, MariaDB. PostgreSQL, SAP, MongoDB, DB2
+            -> Azure SQL Database
+            -> Amazon RDS (including Aurora)
+            -> Amazon S3
+        -> Targets:
+            -> On-premise and EC2 instances: Oracle, Microsoft SQL Server, MySQL, MariaDB. PostgreSQL, SAP ( no MongoDB, DB2)
+            -> RDS
+            -> Redshift
+            -> DynamoDB
+            -> S3
+            -> Elasticsearch service
+            -> Kinesis Data streams
+            -> DocumentDB
             
