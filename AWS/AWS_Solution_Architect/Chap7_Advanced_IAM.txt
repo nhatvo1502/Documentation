@@ -76,3 +76,7 @@ IAM Policies
         -> use to delegate/limit administration to users
         -> prevent priviledge escalation or unnecessarily broad Permissions
         -> control maximum permissions on IAM policy can grant
+
+======
+AWS Resource Access Manager (RAM)
+    
