@@ -77,6 +77,37 @@ Route53 Exam Tips:
     4. CNAMES
     5. MX Records (mail)
     6. PTR Records (reverser A records: looking up DNS name using IP address)
-    
+
+Register Domain Name Exam Tips:
+-> Can buy domain names directly with AWS
+-> Can takes up to 3 days to register depending on the curcumstances
 ./
-=======
+=========
+
+======
+Routing Policies Available on AWS
+    1. Simple Routing
+    2. Weighted Routing
+    3. Latency-based Routing
+    4. Failover Routing
+    5. Geolocation Routing
+    6. Geoproxomity Routing (Traffic Flow Only)
+    7. Multivalue Answer Routing
+
+1. Simple Routing Policies
+    -> One domain record with multiple IP addresses
+    -> Route53 returns IP addresses in a random order
+2. Weight Routing
+    -> Domain associates with one of many IP addresses
+    -> Each association has a weight value, add up to value = 100
+    -> Route53 returns IP addresses in weight value as percentage
+    -> Health Check: individual record can be set up with health Check
+        + If a record fails a health check will be removed from R53 until it passes health check again
+3. Latency-based Routing
+    -> Route53 returns IP address which has the lowest latency
+4. Failover Routing
+    -> Create an active and passive DNS records
+    -> Route53 will return passive records when active records fail to response.
+5. Geolocation Routing
+
+        
