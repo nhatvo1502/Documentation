@@ -91,7 +91,7 @@ Routing Policies Available on AWS
     3. Latency-based Routing
     4. Failover Routing
     5. Geolocation Routing
-    6. Geoproxomity Routing (Traffic Flow Only)
+    6. Geoproximity Routing (Traffic Flow Only)
     7. Multivalue Answer Routing
 
 1. Simple Routing Policies
@@ -109,5 +109,14 @@ Routing Policies Available on AWS
     -> Create an active and passive DNS records
     -> Route53 will return passive records when active records fail to response.
 5. Geolocation Routing
-
+    -> Route53 will return DNS records base on geographically location closet to user
+6. Geoproximity Routing
+    -> Let Amazon Route53 route traffice to your resources base on 
+        + geographic location of users
+        + your resources
+    -> must use Route 53 traffic flow
+7. Multivalue Answer Routing
+    -> Similar to Sinple Routing put with auto-failover by associate with health check
+    -> Return DNS records randomly (Similar to Simple Routing)
+    -> Automatically failover if one record's health check fail (different than Simple Routing)
         
