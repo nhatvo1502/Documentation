@@ -1,0 +1,50 @@
+AWS Active Directory Service
+    -> Family of managed services
+    -> Conect AWS resources with on-prem AD
+    -> Standalone directory on cloud
+    -> use existing corporate credentials
+    -> SSO to any domain-joined EC2 instance
+
+I- Microsoft Compatible Services: AWS Managed Microsoft Active Directory, Simple Active Directory, Active Directory Connector
+    1. AWS Managed Microsoft AD
+        -> AD-DC runs on Windows Server
+        -> AD-DC is on a different VPC from Customer VPC
+        -> AD Trust: extend to on-prem AD
+        
+        ->Shared Responsibility:
+        AWS                             Customer
+        ===============================================================
+        Multi-AZ deployment             Users, groups, GPOs
+        Patch, monitor, recover         Standard AD Tools
+        Instance rotation               Scale out DCs
+        Backup (Snapshot, restore)      Trusts
+                                        Certificate authorities (LDAPS)
+                                        Federation
+
+    2. Simple AD (baby brother)
+    -> Standalone managed directory
+    -> basic AD features
+    -> Sizes: small (less than 500 users), large (less than 5000 users)
+    -> easier to manage EC2
+    -> support Linux workloads need LDAP
+    -> DOES NOT support Trusts => can't join on-prem AD)
+
+    3. AD Connector
+    -> a directory gateway (proxy) to extend on-prem AD
+    -> use to:
+        + on-prem users login to aws by AD crendential
+        + avoid caching information in the cloud
+        + join EC2 instance to existing AD domain
+    -> scale across multiple AD connectors
+
+II- Microsoft incompatible services: Cloud Directory, Amazon Cognito User Pools
+    1. Cloud Directory
+        -> for developers
+        -> fully managed
+        -> use cases: org charts, course catalogs, device registries
+
+    2. Amazon Cognito User Pools
+        -> managed user directory for SaaS applications
+        -> sign-up/sign-in for web or mobile
+        -> social media identites
+
