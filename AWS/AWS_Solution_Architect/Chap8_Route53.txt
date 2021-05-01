@@ -97,6 +97,7 @@ Routing Policies Available on AWS
 1. Simple Routing Policies
     -> One domain record with multiple IP addresses
     -> Route53 returns IP addresses in a random order
+    -> can't have health check (different from 7. Multivalue)
 2. Weight Routing
     -> Domain associates with one of many IP addresses
     -> Each association has a weight value, add up to value = 100
@@ -119,4 +120,29 @@ Routing Policies Available on AWS
     -> Similar to Sinple Routing put with auto-failover by associate with health check
     -> Return DNS records randomly (Similar to Simple Routing)
     -> Automatically failover if one record's health check fail (different than Simple Routing)
-        
+
+===========================
+Route53 Exam Tips:
+-> ELBs do not have pre-defined IPv4 addresses; resolve using DNS name
+-> Alias Record vs CNAME (naked domain name www.)
+-> Common DNS types 
+    1. SOA Records
+    2. NS Records
+    3. A Records
+    4. CNAMES
+    5. MX Records (mail)
+    6. PTR Records (reverser A records: looking up DNS name using IP address)    
+
+ Routing Policies Available on AWS
+    1. Simple Routing
+    2. Weighted Routing
+    3. Latency-based Routing
+    4. Failover Routing
+    5. Geolocation Routing
+    6. Geoproximity Routing (Traffic Flow Only)
+    7. Multivalue Answer Routing
+
+Health Checks
+-> set on individual record sets
+-> record failed health check will be remove from route53 until it passes the health check
+-> can be set with SNS notifications if health check failed
