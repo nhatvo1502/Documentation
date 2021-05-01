@@ -1,10 +1,11 @@
+=======
 AWS Active Directory Service
     -> Family of managed services
     -> Conect AWS resources with on-prem AD
     -> Standalone directory on cloud
     -> use existing corporate credentials
     -> SSO to any domain-joined EC2 instance
-
+=======
 I- Microsoft Compatible Services: AWS Managed Microsoft Active Directory, Simple Active Directory, Active Directory Connector
     1. AWS Managed Microsoft AD
         -> AD-DC runs on Windows Server
@@ -36,7 +37,7 @@ I- Microsoft Compatible Services: AWS Managed Microsoft Active Directory, Simple
         + avoid caching information in the cloud
         + join EC2 instance to existing AD domain
     -> scale across multiple AD connectors
-
+=======
 II- Microsoft incompatible services: Cloud Directory, Amazon Cognito User Pools
     1. Cloud Directory
         -> for developers
@@ -47,4 +48,31 @@ II- Microsoft incompatible services: Cloud Directory, Amazon Cognito User Pools
         -> managed user directory for SaaS applications
         -> sign-up/sign-in for web or mobile
         -> social media identites
+=======
+IAM Policies
+    1. Amazon Resource Name (ARN)
+        Start with = arn:partition:service:region:account_id:
+        End with = 
+            resrouce
+            resource_type/resource
+            resource_type/resource/qualifier
+            resource_type/resource:qualifier
+            resource_type:resource
+            resource_type:resource:qualifier
+        Example:
+            arn:aws:ec2:us-east-1:123456789012:instance/*
+    2. Policies
+        -> JSON document defines Permissions
+        -> list of statement
+        -> Identity policy (who), Resource policy (do what)
+        -> Attach/detach
+    
+    -> not explicitly allowed == implicitly denied
+    -> explicit deny > everthing else
+    -> AWS managed policy: uneditable policy, created by AWS for convenience
+    -> Customer manage policy: customer created, can be edit, delete, create new
 
+    3. Permission Boundaries
+        -> use to delegate/limit administration to users
+        -> prevent priviledge escalation or unnecessarily broad Permissions
+        -> control maximum permissions on IAM policy can grant
