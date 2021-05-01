@@ -88,4 +88,28 @@ AWS Single Sign-on (SSO)
     -> use AD credentials to login to third party applications
     -> SAML 2.0 - Security Assertion Markup Language
 
-
+=======
+SUMARY:
+    -> What is Active Directory: what is the relationship between Microsoft to AWS
+    -> Connect AWS resources with on-premises AD
+    -> SSO to any domain-joined Ec2 instance
+    -> AWS Managed Microsoft AD
+    -> AD Trust
+    -> AWS vs customer Responsibility
+    -> Simple AD: Does not support Trusts
+    -> AD connectors
+    -> Cloud Directory: for developer
+    -> Cognito user pools: for mobile and web
+    -> AD vs Non-AD compatible services
+    -> ARM
+    -> IAM policy structure
+    -> Effect/action/resource
+    -> AWS managed vs customer managed
+    -> Permission boundaries
+    -> Resource sharing between accounts
+    -> Individual accounts and AWS Organization
+    -> Types of resources you can share
+    -> Single Sign-on (SSO): Centrally manage access: Gsuite Office 365, Salesforce
+        ->  existing identities
+        -> account-level permission
+        -> SAML 2.0
