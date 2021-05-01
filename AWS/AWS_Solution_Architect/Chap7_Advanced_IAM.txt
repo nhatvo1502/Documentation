@@ -79,4 +79,13 @@ IAM Policies
 
 ======
 AWS Resource Access Manager (RAM)
+    -> to share resource access across other account
+    -> to individual accounts
+    -> to Organization Accouts
     
+======
+AWS Single Sign-on (SSO)
+    -> use AD credentials to login to third party applications
+    -> SAML 2.0 - Security Assertion Markup Language
+
+
