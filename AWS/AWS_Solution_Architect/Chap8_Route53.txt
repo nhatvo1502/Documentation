@@ -1,0 +1,82 @@
+Route53 name explained:
+    -> The very first US interstate was route 66. 
+        DNS is on port 53 so AWS name it Route 53
+
+======
+DNS 101
+    What is DNS?
+        -> Domain Name Service
+        -> Convert human friendly domain name to Internet Protocol IP
+
+    IPv4 vs IPv6:
+        -> IPv4: 32 bit field and has over 4 billion different addresses
+            -> 4,294,967,296
+            -> is running out
+        -> IPv6: 128 bits
+            -> 340 undecillion addresses
+            -> created to solve ipv4 problem
+    
+    Top Level Domains:
+        -> Domain Structure: DOMAINNAME.SecondLevelDOMAINNAME.TopLevelDomain
+            Ex: Google.com, BBC.co.uk
+        -> Internet Assigned Numbers Authority (IANA): controlled Top Level Domains
+
+    Domain Registrars:
+        -> Domain name has to be unique
+        -> Domain registrars is an authority that can assign domain names directly 
+            under one or more top level domains
+        -> InterNIC (Internet's Network Information Center), a service of ICANN, enforces uniqueness of domain names across
+            Internet
+        -> WhoIS database
+
+    Start Of Authority Record (SOA)
+        -> stores information about:
+            + name of the server that supplied the data for the zone
+            + adminstrator of the zone
+            + current version fo the data file
+            + default number of seconds for the time-to-live TTL file of resource records
+    
+    Name Server Records (NS Records)
+        -> use Top Level Domain servers to direct traffice to Content DNS server
+        -> Content DNS server contains the authoritative DNS records
+
+        ======================================================================
+        user query: -->  TLD (.com) queries            -> NS Records -> SOA
+        google.com       authoritative DNS record:
+                         I need to know the ip address
+
+        NS Records contains: 
+            A records -  a stand for address
+                for example: google.com -> http://8.8.8.8
+            CName - Canonical Name
+                a reference DNS to point one DNS to another DNS
+                for example: www.cat.com -> feline.com -> http://8.8.8.8
+                use case: when apply ip change on feline.com, www.cat.com will automaticall follow
+                Can't be used with naked domain name (has to have www.)
+            Alias Records:
+                Alias records are used to map resource record sets in host zone to ELB, CloudFront distribution, or S3 that are configured as Websites
+                Similar to CNAME but can be used with naked domain name (without 'www.')
+
+
+        
+
+
+    TTL
+        -> DNS record is cached on the Resolving Server/local PC during TTL period
+        -> flushdns will renew this record
+        -> DNS records be default is 48 hours -> any changes to DNS will takes effect
+            on client within 48 hours
+
+Route53 Exam Tips:
+-> ELBs do not have pre-defined IPv4 addresses; resolve using DNS name
+-> Alias Record vs CNAME (naked domain name www.)
+-> Common DNS types 
+    1. SOA Records
+    2. NS Records
+    3. A Records
+    4. CNAMES
+    5. MX Records (mail)
+    6. PTR Records (reverser A records: looking up DNS name using IP address)
+    
+./
+=======
