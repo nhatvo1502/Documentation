@@ -25,3 +25,26 @@ EXAM TIPS:
 -> 1 Subnet = 1 AZ
 -> Security Groups are Stateful, Network Access Control Lists are Stateless
 -> NO TRANSITIVE PEERING
+
+LAB PART 1
+-> Reserved IPaddress - when creating a new subnets
+    10.0.0.0: network address
+    10.0.0.1: for VPC router
+    10.0.0.2: DNS server
+    10.0.0.3: for future use
+    10.0.0.255: network broadcast address, AWS doesn't support broad cast in VPC, therefore AWS reserve this address
+-> A new VPC comes with: default Route Table (main), Network Access Control List (NACL), default Security Groups
+-> A new VPC won't create: Subnets, IGW
+-> AZs are randomized
+
+LAB PART2
+
+LAB Part3
+-> NAT: Network Address Transmission
+-> NAT Gateway
+    + Redundant inside AZ
+    + Prefered by the enterprise
+    + 5Gbps - 45Gbps
+-> NAT Instance 
+    + disable source/destination check on the instance
+    + must be on public subnet
