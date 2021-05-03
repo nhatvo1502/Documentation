@@ -1,0 +1,27 @@
+VPC - Amazon Virtual Private Cloud 
+    - provision a logically isolated section of AWS Cloud
+    - a private user defined network
+    - user have complete control over this private network: private IP address rage, subnets, route tables and network gateways
+
+    Private IP address:
+        -> 10.0.0.0 - 10.255.255.255 (10/8 prefix)
+        -> 172.16.0.0 - 172.31.255.255 (172.16/12 prefix)
+        -> 192.168.0.0 - 192.168.255.255 (192.168/16 prefix)
+    
+    Default VS vs Custom VPC
+        -> Default VPC is user friendly
+        -> All submets in default VPC have a route to internet
+        -> EC2 instance has both public and private IP address
+    
+    VPC Peering - to connect one VPC to another
+        -> instance behave as if they were on the same private network
+        -> can peer with other AWS account VPC
+        -> NO TRANSITIVE PEERING! - no brigding. FOr example:
+            A <---> B, B <---> C: B can talk to A and C, but A cannot talk to C and likewise
+
+EXAM TIPS:
+-> VPC is logical datacenter in AWS
+-> Consist of Internet Gateways (IGWs), Route Tables, Network Access Control Lists, Subnets, and Security Groups
+-> 1 Subnet = 1 AZ
+-> Security Groups are Stateful, Network Access Control Lists are Stateless
+-> NO TRANSITIVE PEERING
