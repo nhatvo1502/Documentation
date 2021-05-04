@@ -1,0 +1,8 @@
+VPC - 
+    1. Watch the lecture again and take quick note:
+        + public subnet
+        + private subnet
+        + NAT Gateway vs Instance Gateway
+        + etc.
+    2. re-create a custom VPC on California region from memory + note
+    3. Make sure to understand Security Group vs NACL

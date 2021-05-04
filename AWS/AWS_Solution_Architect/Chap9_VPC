@@ -139,3 +139,47 @@ Transit Gateway
 -> works with route table to limit how VPCs talk to each others
 -> works with Direct Connect, VPN 
 -> support IP multicast
+
+VPN CloudHub
+-> hub-and-spoke model
+-> connect multiple site via centralized VPN connections
+-> low cost, easy to manage
+-> encrypted during transmit
+
+Network Consist
+-> private IP is cheaper than public IP
+-> Bundle everything inside one AZ will be network cost free but single point of failure
+
+VPC FINAL EXAM TIPS (reviewstrat.txt)
+-> VPC similar to logical datacenter in AWS
+-> consists of Internet Gateway (IGWs or Virtual Private Gateways), Route Tables, Network Access Control Lists (NACL), Subnets, and Security Groups
+-> 1 subnet = 1 AZ
+-> Security Group is Stateful
+-> Network Access Control List is Stateless
+-> NO TRANSITIVE PEERING
+-> New VPC consist default Route Tablet, NACL, default Security Group
+-> New VPC will not create subnet, nor default IGW (you have to create them)
+-> US-EAST-1A in one account can be a completely different AZ to US-EAST-1A in another acocunt. AZs are randomized
+-> ONLY 1 IGW per VPC (AWS takes care of IGW HA)
+-> Security Groups can't span VPCs = different VPC has their own SG sets
+
+NAT INSTANCES EXAM TIPS
+-> Have to: Disable Source/Destination Check in the Instance
+-> Have to: be on public subnet
+-> Have to: route private subnet to NAT INSTANCE
+
+    Private Subnet                      Public Subnet         
+    ====================                ==================
+    Private EC2 instance    -------->   NAT INSTANCE        -----------> INTERNET
+                                        (Disable Src/Dest)           
+    ====================                ==================
+-> amount of traffic that NAT INSTANCE can support depends on the instance size = increase instance size if bottlenecking
+-> NAT INSTANCES HA = (Create multiple NAT INSTANCE across AZs) + (script to automate failover) + (Autoscaling Group)
+-> Behind Security Groups
+
+NAT GATEWAYS EXAM TIPS
+-> Have to: be on Public subnet
+-> Have to: route private SN to NATE GATEWAY
+-> Not behind Security Group
+-> AWS takes care of HA
+-> CHOOSE NAT GATEWAYS over NAT INSTANCES ALWAYS!
