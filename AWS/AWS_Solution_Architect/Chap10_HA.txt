@@ -1,0 +1,16 @@
+Load Balancer
+    -> Balance load between instance 
+    1. Application Load Balancer:
+        -> HTTP. HTTPD traffic
+        -> operate layer 7
+    2. Network Load Balancer:
+        -> TCP traffic
+        -> operate layer 4
+        -> extreme performance require
+        -> millions of requests per second, ultra-low latencies
+    3. Classic Load Balancers
+        -> Legacy Elastic Load Balancer
+        -> Layer 7 http/https
+        -> Layer 4 on application use TCP
+        -> Not application aware
+        -> Error 504: Gateway timeout
