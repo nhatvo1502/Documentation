@@ -120,4 +120,13 @@ Global Accelerator
             + Endpoint can be eight: NLB, ALB, EC2 Instances, or Elastic IP addresses
             + If Endpoint = ALB, can be internet-facing (public) or internal (private)
             + Endpoint Weight: numbers of traffic proportion to route to each Endpoint
-     
+
+AWS Private Link - The best way to expose VPC to multiple customer VPC
+    -> To open a VPC <---> another VPC there are 3 ways:
+        1. Open it up to the internet publicly
+            Negative: everything on public subnet will be accessed publicly, a lot to manage
+        2. Use VPC Peering
+            Negative: has to create and manage many peering relationships, 100 VPC =  100 Peering, time consuming
+        3. AWS Private Link
+            -> doesn't require VPC peering, no route table, NAT, IGWs, etc.
+            -> requires a NLB on the service VPC and an ENI on customer VPC
