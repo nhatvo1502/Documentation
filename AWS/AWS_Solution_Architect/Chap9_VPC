@@ -91,4 +91,33 @@ Direct connect Creation
     5. Select VPN Connections and create new VPN Connection
     6. Select the Virtual private Gateway and the Customer Gateway
     7. Once VPN is available, setup the VPN on the customer gateway or firewall
+
+Global Accelerator 
+-> a service to improve availability and performance of your applications for local and global users
+    Components:
+        -> Static IP addresses: AWS provides 2 static IP, user can bring their own
+        -> Accelerator:
+            + direct traffic to optimal endpoints
+            + each Accelerator includes one or more Listeners
+        -> DNS Name:
+            + random. Ex: a1234.awsglobalaccelerator.com
+            + point to provided static IP addresses
+            + can be setup to route traffic using custom Domain Name
+        -> Network Zone: 
+            + similar to AZ, a network zone is an isolated unit with physical infrastructure
+            + service static IP address
+            + One IP down, traffic will be routed to another IP from a healthy isolated Network Zone
+        -> Listener:
+            + processes inbound connections from Client -> Global Accelerator based on port (or port range) + configured protocol
+            + Global Accelerator supports TCP + UDP
+            + Each Listener has one or more Endpoint Groups
+        -> Endpoint Groups:
+            + each Endpoint associate with an AWS region
+            + Endpoint Groups = one ore more endpoints in the Region
+            + Traffic Dial = distribute traffic to Endpoints according to their weight percentage
+            + Traffic Dial provide performance testing or blue/green deployment testing for new releases across different AWS Region
+        -> Endpoint:
+            + Endpoint can be eight: NLB, ALB, EC2 Instances, or Elastic IP addresses
+            + If Endpoint = ALB, can be internet-facing (public) or internal (private)
+            + Endpoint Weight: numbers of traffic proportion to route to each Endpoint
      
