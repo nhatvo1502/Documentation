@@ -180,6 +180,91 @@ NAT INSTANCES EXAM TIPS
 NAT GATEWAYS EXAM TIPS
 -> Have to: be on Public subnet
 -> Have to: route private SN to NATE GATEWAY
+-> Have to: update route tables
 -> Not behind Security Group
--> AWS takes care of HA
+-> AWS takes care
+    + HA: Redundant inside AZ
+    + Patching
+-> Preferred by enterprise
+-> Start 5Gbps -> 45 Gbps
+-> Automatically assigned public ip address
+-> NAT Gateway set in one AZ can be shared/accessed by resource from other AZ 
+        -> if that NAT AZ down, all resource from other AZ will lost connection
+        -> should create NAT GATEWAY in EACH AZ!
 -> CHOOSE NAT GATEWAYS over NAT INSTANCES ALWAYS!
+
+NACL EXAM TIPS
+-> allow all inbound and outbound traffic by default
+-> can create custom network ACL to deny all until adding more rules
+-> Each Subnet must associate with 1 NACL (bound with default NACL by default)
+-> A NACL can associate with multiple Subnets
+-> To block IP Addresses, use NACL, NOT Security Groups
+-> Rules in NACL are evaluated in order, lowest number first
+-> Stateless: response to allowed inbound are subject for outbound 
+
+ELB and VPC EXAM TIPS
+-> Need 2 public subnets to deploy an internet facing load balancer
+
+VPC FLOW LOGS EXAM TIPS
+-> can tag 
+-> cannot enable for peered VPC on another account (unless VPC is in your account)
+-> cannot modify after Creation
+-> Exclude IP that are not monitored:
+    + traffic to Amazon DNS (custon DNS server will be monitored)
+    + traffic to Windows instance for Amazon Windows License activation
+    + 169.254.169.254 instance metadata
+    + reserved UP for default VPC router
+    + DHCP IP
+
+BASTION EXAM TIPS
+    + Jumpbox
+    + used to securely administer EC2 instances (SSH or RDP)
+    + Cannot use a NAT Gateway as Bastion (NAT provide internet traffic to instance in private SN, Bastion administer EC2 instance SSH/RDP only)
+
+DIRECT CONNECT EXAM TIPS
+-> Steps to create Direct Connect:
+    1. Create a (public) virtual interface in Direct Connect console. This is a PUBLIC Virtual Interface
+    2. Go to VPC console -> VPN connections -> create Customer Gateway
+    3. Create Virtual Private Gateway
+    4. Attach Virtual Private Gateway to VPC
+    5. Select VPN connections -> create new VPC connection
+    6. Select Virtual Private Gateway -> Customer Gateway
+    7. Once VPN is available, setup VPN on customer gateway/firewall
+
+GLOBAL ACCELERATOR EXAM TIPS
+-> improve availability + performance of application for local + global users
+-> provided 2 static IP (can bring custom)
+-> traffic dials: distribute traffic by weight via endpoint Groups
+
+VPC ENDPOINTS EXAM TIPS
+-> privately connect VPC to AWS service
+-> powered by PrivateLink = no need for internet gateway, NAT, VPN, Direct Connect
+-> traffic does not leave AWS network
+-> Endpoints are virtuals
+-> horizontally scaled, redundant, HA = high bandwidth
+-> Interface Endpoints vs Gateway Endpoints
+    + Inter support a lot of AWS services
+    + Gateway support only S3 and DynamoDB
+
+PRIVATE LINK EXAM TIPS
+-> Peering VPC to TENS, HUNDREDS, or THOUSANDS of customer VPCs
+-> NOT requiring NAT, IGW, etc.
+-> Require: a NLB on service VPC <----> an ENI on customer VPC
+
+TRANSIT GATEWAY EXAM TIPS
+-> "Simply network connections", "Support Multicast"
+-> tansitive peering between VPCs <--> on-prem 
+-> hub-to-spoke model
+-> Regional, can go multi-regional
+-> Works with Resource Access Manager to use across AWS accounts
+-> Works with Direct Connect
+-> Works with VPN
+
+VPN CLOUDHUB EXAM TIPS
+-> centralize VPN connections between sites
+-> hub-and-spoke
+-> encrypted, low cost
+
+NETWORK COST EXAM TIPS
+-> Private IP > Public IP
+-> trade cost to HA
