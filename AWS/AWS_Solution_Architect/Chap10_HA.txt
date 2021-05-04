@@ -14,3 +14,16 @@ Load Balancer
         -> Layer 4 on application use TCP
         -> Not application aware
         -> Error 504: Gateway timeout
+
+X-Forwarded-For Header
+                Load Balancer
+    User's IP ----------------> Load Balancer's IP
+    -> X-Forwarded-For Header will help retrieving User's IP after it pass Load Balancer to the Application
+
+Sticky Session: send users traffic to one EC2 instance only
+
+Cross Zone Load Balancing: Load Balancer can talk to each other and send traffic to each other's instances
+
+Path Patterns: listener with rules to forwards requests based on URL Path
+    -> forward www.myurl.com to instance A, B, C, D
+    -> forward www.myurl.com/image to instance E, F
