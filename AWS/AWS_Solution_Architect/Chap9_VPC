@@ -130,3 +130,12 @@ AWS Private Link - The best way to expose VPC to multiple customer VPC
         3. AWS Private Link
             -> doesn't require VPC peering, no route table, NAT, IGWs, etc.
             -> requires a NLB on the service VPC and an ENI on customer VPC
+
+Transit Gateway
+-> transitive peering between thousand of VPCs + on-prem datacenters
+-> hub-and-spoke model: direct from point-point
+-> regional basis, can have it across multiple regions
+-> works with RAM (Resource Access Manager) to use across multiple AWS accounts
+-> works with route table to limit how VPCs talk to each others
+-> works with Direct Connect, VPN 
+-> support IP multicast
