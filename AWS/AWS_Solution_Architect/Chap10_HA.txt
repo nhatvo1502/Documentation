@@ -27,3 +27,16 @@ Cross Zone Load Balancing: Load Balancer can talk to each other and send traffic
 Path Patterns: listener with rules to forwards requests based on URL Path
     -> forward www.myurl.com to instance A, B, C, D
     -> forward www.myurl.com/image to instance E, F
+
+Auto Scaling
+    -> 3 Components:
+        1. Groups: logical component. Webserver group/Application Group/Database group/Application
+        2. Configuration Templates: 
+        3. Scaling Options:
+            + Maintain current instance levels at all time
+            + Scale manually
+            + Scale base on schedule
+            + Scale based on demand (base on resouce, workload, traffic)
+            + Predictive scaling (predict on last performance)
+
+HA Architecture
