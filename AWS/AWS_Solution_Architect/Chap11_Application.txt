@@ -1,0 +1,12 @@
+SQS - a queue, temporary repo for messages that are waiting processing
+    -> reliable
+    -> oldest service
+    For example: Meme Website, Travel Website
+    -> decouple components
+    -> pull-based
+    -> visibility timeout (max 12 hours)
+
+    Standard Queue: random
+    FIFO: first in first out, orderly, limited to 300 transaction per second TPS
+
+    long polling vs short polling
