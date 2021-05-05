@@ -40,3 +40,53 @@ Auto Scaling
             + Predictive scaling (predict on last performance)
 
 HA Architecture
+    -> design for failure
+    -> Multi-AZ = DR, Read Replicas = Performance (RDS)
+    -> scaling out = ASG, scaling up = increase resource (t2 -> t3)
+    -> cost element
+
+CloudFormation
+    -> a way of completely scripting your coud environment
+    -> quickstart is built-in CloudFormation templates
+
+Elastic Beanstalk
+    -> quickly deploy and manage applications in AWS cloud without worrying about infrastructure
+    -> automatical handle: defails of capacity, provisioning, load balancing, scaling and application health monitoring
+
+On-prem AWS service can run:
+    1. Database Migration Service (DMS)
+        + Allow to move on-prem databases to and from AWS
+        + DR environment in AWS where prem is primary
+        + Homogenous vs heterogeneous migration
+    2. Server Migration Service (SMS)
+        + incremental replication of on-prem to AWS
+        + backup tool, multi-site strategy, DR tool
+    3. AWS Application Discovery Service
+        + help enterprise customers plan migration
+        + install AWS Application Discovery Agentless Connector as virtual appliance on VMware vCenter
+        + build a server utilization map and dependency map
+        + collected data is retained in encrypted format in AWS Application Discovery Service data store -> can be 
+            export as CSV file to estimate the TCO
+    -> VM Import/Export
+        + Migrate existing application to EC2
+        + create DR strategy on AWS or use AWS as second site
+        + can export AWS VMs to on-prem
+    -> Download Amazon Linux 2 as an ISO
+
+EXAM TIPS
+-> 3 types of Load Balancers
+    1. ALB - Layer 7 aware
+    2. NLB - Extreme performance, static IP address, Layer 4
+    3. CLB - Cheap, no application aware
+-> 5.4 Error = gateway time out, ELB is fine
+-> X-Forwarded-For header
+-> Load Balance have their own DNS name, not IP address
+-> Sticky Sessions
+-> Cross Zone Load Balancing
+-> Path patterns 
+-> CloudFormation
+-> quickstart
+-> Elastic Beanstalk
+-> Bastion
+    + scenario 1: 2 bastions, 2 AZs, 1 NLB (no down time, but costly)
+    + scenario 2: 1 bastion, 2 AZs, 1 ASG, 1 EIP (some downtime, cheaper)
