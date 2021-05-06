@@ -1,4 +1,4 @@
-SQS - a queue, temporary repo for messages that are waiting processing
+SQS - a queue, temporary repo for messages that are waiting processing - pull-based
     -> reliable
     -> oldest service
     For example: Meme Website, Travel Website
@@ -10,3 +10,17 @@ SQS - a queue, temporary repo for messages that are waiting processing
     FIFO: first in first out, orderly, limited to 300 transaction per second TPS
 
     long polling vs short polling
+
+Simple Notification Service (SNS) - push-based
+    -> push-based deliver (no polling)
+    -> simple API
+    -> flexible message delivery with multiple transport protocols
+    -> Inexpensive, pay-as-you-go model with no up-front costs
+    -> point-and-click interface
+
+SNS (push) vs SQS (pull/pull)
+
+Elastic Transcoder
+    -> converts media files from their original source format in to different formats that will
+        play on smartphones, tablets, PCs, etc.
+    
