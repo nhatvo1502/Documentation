@@ -108,4 +108,30 @@ Event Processing Patterns
 
 SUMMARY EXAM TIPS
 -> SQS = de-couple 
-->
+-> SQS is pull-based
+-> SQS message are 256KB, bigger size will be stored in S3
+-> SQS message keep in queue 1min to 14 days, default retention period is 4 days
+-> Standard SQS: are not guaranteed, can be delivered more than once
+-> FIFO SQS: strictly maintained, deliver once
+-> Visibility Time Out = amount of time that message is invisible in SQS queue after reader picks up that message. Maximum 12 hours
+-> SQS long polling = doesn't return response until message arrives in queue or time out
+-> SQS short polling = return immediately
+-> SQS vs SWF (Simple Workflow): 
+    + retention period 14 days  vs  1 year
+    + message-oriented API      vs  task-oriented API (human)
+    + duplicated messages       vs  task is assigned only once, never duplicated
+    + need to be implemented    vs  track tasks
+-> SWF Actors (human)
+    + Workflow Starters: application can initiate a workflow
+    + Deciders: control flow of activity task, in case of fail/suceed, decider decides what to do next
+    + Activity Workers: carry out activity task
+-> SNS Benefits = pushed
+-> API Gateway:
+    + high level
+    + caching = increase performance
+    + low cost + scale auto
+    + CORS enable for Javascript/AJAX that uses multiple domains with API Gateway
+-> Kinesis Streams: shards
+-> Kinesis Firehose: 
+-> Kinesis Analytic:
+-> Cognito = Web Identity Provider
