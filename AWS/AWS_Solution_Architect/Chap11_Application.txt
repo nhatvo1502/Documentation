@@ -24,3 +24,51 @@ Elastic Transcoder
     -> converts media files from their original source format in to different formats that will
         play on smartphones, tablets, PCs, etc.
 
+API gateway
+    -> High level
+    -> Expose HTTPS endpoints to define a RESTful API
+    -> Serverless-ly connect to services like Lambda & DynamoDB
+    -> 1 API per target
+    -> low costs
+    -> scale effortlessly
+    -> track usage
+    -> throttle request to prevent attacks
+    -> Cloudwatch logs
+    -> versions API
+    
+    Configure setups:
+        1. Select HTTP methods (set, get, etc.)
+        2. Set Security
+        3. Choose target (EC2, Lambda, DynamoDB, etc)
+        4. Set request and response transformations
+
+    API Caching:
+        -> cache endpoint's response
+        -> improve latency
+        -> TTL
+    
+    Same origin policy
+        -> a web browser permits scripts contained in a first web page to access data in a second only if both web pages have the same origin
+        -> prevent Cross-Site Scripting (XSS) attachs
+
+    CORS - one way the server at the other end (not client code in browser) can relax the same origin policy
+        -> Cross Origin Resource Sharing
+        -> allows restricted resources (fonts) on a web page to be requested from another domain outside the domain from which
+            the first resource was served
+        -> Error "Origin policy cannot be read at the remote resource?" - Need to enable CORDS on API Gateway
+
+Kenesis:
+    3 types:
+        1. Kinesis Stream: 
+        =============================================================================================
+        Producers (data source) ---> Kinesis Stream (shard) -------------> EC2 (consumer) ----------> S3, etc.
+                                    (store for 24 hours 7 days retention)
+        -> Kineis streams consist of shards
+            + Read: 5 transactions per second or max read 2mb per sec
+            + Write: max 1000 records per second for write or 1mp per sec
+        2. Kinesis Firehose
+        Producers (data source) ---> Kinesis Firehose -------------> EC2/Lambda (optional) ----------> S3 ----> REDSHIFT, etc.
+                                    (Will do nothing)
+        3. Kinesis Analytics
+        -> Work on top with Stream/Firehose to analyze data on the fly 
+        -> store on S3, RedShift, Elasticsearch Clusters
