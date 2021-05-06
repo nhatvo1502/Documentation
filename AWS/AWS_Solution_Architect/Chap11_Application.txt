@@ -90,3 +90,22 @@ Amazon Cognito = Web Identity Federation
     -> access AWS service
 
     SNS notifination
+
+Event Processing Patterns
+-> pub/sub pattern - facilitated by SNS
+-> What service support DLQ: SNS, SQS, Lambda
+-> Fanout pattern - SNS
+    Event-Driven Architecture
+
+    Dead-Letter Queue (DLQ)
+        -> similar to lost and found
+        SNS: failled to deliver message will be withheld
+        SQS: message sent to SQS that exceed the maxReceiveCount are sent to a DLQ (another SQS queue)
+        Lambda: 
+    Fanout Pattern
+
+    S3 Event Notifications
+
+SUMMARY EXAM TIPS
+-> SQS = de-couple 
+->
