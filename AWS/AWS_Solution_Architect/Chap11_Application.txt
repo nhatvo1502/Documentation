@@ -72,3 +72,21 @@ Kenesis:
         3. Kinesis Analytics
         -> Work on top with Stream/Firehose to analyze data on the fly 
         -> store on S3, RedShift, Elasticsearch Clusters
+
+Amazon Cognito = Web Identity Federation
+    Web Identity Federatoin = authenticate with provider like Amazon, Facebook, or Google will receive an 
+        authentication code, which can be trade for temporary AWS security credentials
+    -> sign-up + sign-in
+    -> access for guest user
+    -> act as an Identity Broker between your app and Web ID Provider, no addition code
+    -> synchronizes users data for multiple devices
+    -> RECOMMENDED for all mobile applications AWS services
+
+    User protocols
+    -> JSON Web Token (JWT)
+    -> email address, username, password 
+
+    Identity Pools
+    -> access AWS service
+
+    SNS notifination
