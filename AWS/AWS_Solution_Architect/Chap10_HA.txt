@@ -90,3 +90,4 @@ EXAM TIPS
 -> Bastion
     + scenario 1: 2 bastions, 2 AZs, 1 NLB (no down time, but costly)
     + scenario 2: 1 bastion, 2 AZs, 1 ASG, 1 EIP (some downtime, cheaper)
+
