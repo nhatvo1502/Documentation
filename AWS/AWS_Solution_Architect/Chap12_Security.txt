@@ -9,3 +9,29 @@ Bad Actors
     -> Can also attach WAF to CloudFront
         + because NACL is sit behind CloudFront, where CloudFront will send different IP (not origin IP)
     -> CloudFront Geo Match
+
+KMS - Key Management Service - key management + encryption + decryption
+-> Regional
+-> Customer master keys (CMKs)
+-> S3 objects, databases password, API keys
+-> encrypt/decrypt data up to 4KB
+-> pay per API call
+-> audit with CloudTrail
+-> FIPS 140-2 level 2
+-> HSM level 3
+
+        CMK
+        ===========================================================================
+                            Can view        Can Manage      Dedicated to My Account
+        Customer Manage     yes             yes             Yes
+        AWS Managed CMK     yes             no              Yes
+        AWS Owned CMK       no              yes             no
+
+                    Symmetric                   Asymmetric
+        ===========================================================================
+        Same key used for encrypt/decrypt       public/private key pair
+        Never leaves AWS unencrypted            Private key never leaves AWS unencrypted
+        AWS-256                                 RSA and ECC (Elliptic-curve cryptography)
+        call KMS API to use                     call KMS API to use private key
+        AWS service integrated with KMS         Download public key to use outside AWS
+        Import your own key material            AWS services integrated with KMS do not support asymmetric CMKs
