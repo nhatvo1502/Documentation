@@ -53,3 +53,24 @@ EXAM TIPS
 -> USE HSM IF:
     -> Regulatory compliance requirements
     -> FIPS 140-2 Level 3
+
+System Manager Parameter Store
+    Parameter Store
+        -> component of AWS systems Manager (SSM)
+        -> secure serverless storage for configuration and secrets:
+            + Passwords
+            + Database connection strings
+            + License codes
+            + API keys
+        -> Values can be stored encrypted (KMS) or plaintext
+        -> seperate data from source control
+        -> hierachies
+        -> track versions
+        -> set TTL expires on valuesff
+
+    Organizing Parameters into Herarchies
+        -> 15 level deeps
+        -> grant permission on folder level or object level
+        -> path
+
+    Integrate with CloudFormation
