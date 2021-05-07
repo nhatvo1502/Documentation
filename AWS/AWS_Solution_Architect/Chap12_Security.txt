@@ -35,3 +35,21 @@ KMS - Key Management Service - key management + encryption + decryption
         call KMS API to use                     call KMS API to use private key
         AWS service integrated with KMS         Download public key to use outside AWS
         Import your own key material            AWS services integrated with KMS do not support asymmetric CMKs
+
+CloudHSM
+-> Dedicated hardware security module HSM
+-> FIPS140-2 Level 3
+-> Level 2 is KMS
+-> Manage your own keys
+-> No access to the AWS-managed component.
+-> Run within a VPC
+-> Single tenant, dedicated hardware, multi-AZ cluster
+-> Industry-standard APIs- no AWS API
+-> PKCS#11
+-> Java Cryptography Extensions (JCE)
+-> Microsoft CryptoNG (CNG)
+
+EXAM TIPS
+-> USE HSM IF:
+    -> Regulatory compliance requirements
+    -> FIPS 140-2 Level 3
