@@ -1,0 +1,7 @@
+Skill Service: AWS Lambda
+
+Skill Interface:
+    -> Invocation Name
+    -> Intent Schema
+    -> Slot Type
+    -> Utterances

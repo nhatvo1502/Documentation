@@ -1,0 +1,32 @@
+
+
+Lamda
+    Event-driven: trigger response to events
+    Compute service: response to HTTP requests via Amazon API Gateway
+
+    Supported Language:
+    1. Node.js
+    2, Java
+    3. Python
+    4. C#
+    5. Geo
+    6. PowerShell
+
+    Price:
+    -> Free for first 1 million request. $0.20 per 1 million requests thereafter
+    -> Duration
+
+-> NO SERVER! = no patching, no virus
+-> continous scaling (out not up)
+-> SUPER SUPER CHEAP!
+-> Lambda <--> Alexa
+-> 1 event = 1 function
+-> Lambda function can trigger other lambda functions
+-> AWS X-ray debug lambda
+
+Serverless Application Model (SAM)
+    -> CloudFormation extension optimized for serverless applications
+    -> functions, APIs, tables
+    -> support anything CloudFormation supports
+    -> run serverless applications locally
+    -> package and deploy using code-deploy
