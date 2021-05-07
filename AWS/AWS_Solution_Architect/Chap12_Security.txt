@@ -74,3 +74,12 @@ System Manager Parameter Store
         -> path
 
     Integrate with CloudFormation
+
+Secrets Manager
+-> Similar to System Manager Parameter Store
+-> Charge per secret stored and per 10,000 API calls
+-> Automatically rotate secrets
+-> Apply the new key/password in RDS for you 
+-> Henerate random secrets 
+
+AWS Shield
