@@ -98,3 +98,14 @@ ECR - Elaster Container Registry
 -> integrate with images
 -> pay for storage and data transfer
 
+ECS + ELB = ♥
+-> distributed traffic evenly across tasks in your service
+-> support ALB, NLB, CLB
+-> use ALB to route HTTP/HTTPS layer 7 traffic
+-> use NLB or CLB to route TCP layer 4 traffic
+-> support by both EC2 and Fargate launch types
+-> ALB allows:
+    + Dynamic host port mappings
+    + Path-based routing
+    + priority rules
+-> ALB is recommended over NLB or CLB
