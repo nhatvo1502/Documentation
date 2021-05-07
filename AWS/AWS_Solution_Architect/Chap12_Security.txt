@@ -93,4 +93,30 @@ AWS Shield
     reflection attacks              DDoS cost protection
     proven                       
 
-AWF
+WAF
+    Web Application Firewall
+    Monitor HTTP(S) requests to CloudFront, ALB, or API Gateway
+        -> Control access to content
+        -> configure filtering rules to allow/deny traffic:
+            + IP
+            + query string parameters
+            + SQL query injection
+        -> Blocked traffic returns HTTP 403 forbidden
+
+    Allow all request, except specify
+    Block all request, except specify
+    Count the request that match the properties you specify
+    Request properties:
+        -> Originating IP address (block by ip)
+        -> Originating country (block by country)
+        -> Request size (block by size)
+        -> Values in request headers (block vy value in headers)
+        -> strings in request matching regular expressions (regex) patterns (block by pattern in string)
+        -> SQL code (injection)
+        -> cross-site scripting XSS
+
+AWS Firewall Manager
+    Centrally configure and manage firewall rules across an AWS organization
+    -> WAF rules:
+        + ALB
+        + API Gateway
