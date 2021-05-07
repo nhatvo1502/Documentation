@@ -83,3 +83,14 @@ Secrets Manager
 -> Henerate random secrets 
 
 AWS Shield
+-> Protects against distributed deniel-of-service (DDoS) attacks
+
+    AWS Shield Standard             AWS Shield Advanced
+    ====================     vs     =======================
+    Free                            $3000 oer month per Organizing
+    layer 3, 4                      Enhanced protection for EC2, ELB, Cloudfront, Global Accelerator, Route53
+    SYN/UDP floods                  Business and Enterprise Support 24x7 to DDoS Response Team distributed
+    reflection attacks              DDoS cost protection
+    proven                       
+
+AWF
