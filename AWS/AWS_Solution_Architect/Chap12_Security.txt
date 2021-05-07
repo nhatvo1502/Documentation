@@ -1,0 +1,11 @@
+
+Bad Actors
+    -> NACL to block IP address (layer 4)
+    -> Host-based firewall - run on EC2
+    -> ALB will terminate bad IP before NACL 
+    -> WAF - Web Application Firewall attached to ALB (layer 7)
+        + block or allow IP address
+        + sql injection
+    -> Can also attach WAF to CloudFront
+        + because NACL is sit behind CloudFront, where CloudFront will send different IP (not origin IP)
+    -> CloudFront Geo Match
