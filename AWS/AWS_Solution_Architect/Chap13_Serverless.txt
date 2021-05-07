@@ -89,4 +89,12 @@ EKS - Elastic Kubernetes Service
     + already using K8s
     + want to migrate to AWS
 
+ECR - Elaster Container Registry
+-> managed Docker container Registry
+-> store, manage, and deploy images
+-> integrated with ECS and EKS
+-> works with on-prem deployments
+-> high available
+-> integrate with images
+-> pay for storage and data transfer
 
