@@ -113,3 +113,14 @@ ECS + ELB = ♥
 ECS Security
     Traditional EC2 host: all the containers/tasks under EC2 host will have the same privillege of that EC2 (not ideal)
     Task Role: Each task has their own Task Role (least privillege = IDEAL)
+
+
+
+SUMMARY EXAM TIPS
+-> Traditional vs Serverless
+    API > Lambda > RDS/Aurora/DynamoDB
+-> Lambda scales out not up
+-> Lamb 1 event = 1 function
+-> Lambda can trigger other lambdas
+-> AWS X-ray help debug serverless applications
+-> Lambda can do thing globally
