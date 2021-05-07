@@ -30,3 +30,63 @@ Serverless Application Model (SAM)
     -> support anything CloudFormation supports
     -> run serverless applications locally
     -> package and deploy using code-deploy
+
+Elastic Container Service (ECS)
+    What is container?
+        -> is a package that contains an application, libraries, runtime, and tools required to run it
+        -> run on a container engine like Docker
+        ->  provides the isolation benefits of virtualization with less overhead and faster starts than VMs
+        -> containerized applications are portable and offer a consistent environment
+    What is ECS?
+        -> manage container orchestration service
+        -> create clusters to manage fleets of container deployments
+        -> ECS manages EC2 or Fargate instances
+        -> schedules containers for optimal placement
+        -> defines rules for CPU and memory requirements
+        -> monitors resource utilization
+        -> deploy, update, roll back containers
+        -> FREE
+        -> VPC, security groups, EBS volumes
+        -> ELB
+        -> CloudTrail and CloudWatch
+    Components:
+        1. Cluster:
+            Logical collection of ECS resources - either ECS EC2 instances or Fargate instances
+   
+        2. Task Definition
+            Defines your application. Similar to a Dockerfile but for running containers in ECS. Can contain multiple containers
+
+        3. Container Definition
+            Inside a task definition, it defines the individual containers a task uses. Controls CPU and RAM allocation and port mappings
+
+        4. Task
+            Single  running copy of any containers defined by a task definition. One working copy of an application
+
+        5. Service
+            Allows task definition to be scaled by adding tasks. Defines minimum and maximum values
+
+        6. Registry 
+            Storage for container images (ECR Elastic Container Registry or Docker Hub). Used to download images to create containers
+
+Fargate
+-> serverless container engine
+-> Eliminates need to provision and manage serverless
+-> specify and pay for resources per application
+-> Works with both ECS and EKS
+-> Each workload runs in its own kernel
+-> isolation and security
+-> Choose EC2 instead if:
+    + Compliance requirements
+    + Require broader customization
+    + require GPUs
+
+EKS - Elastic Kubernetes Service
+-> K8s is open source software that lets yo deploy and manage containerized application scaled
+-> Same toolset on prem and in CloudFormation
+-> containers are group in Pods
+-> like ECS, support both EC2 and Fargate
+-> Why use EKS?
+    + already using K8s
+    + want to migrate to AWS
+
+
