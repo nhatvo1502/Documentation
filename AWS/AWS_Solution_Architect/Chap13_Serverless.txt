@@ -109,3 +109,7 @@ ECS + ELB = ♥
     + Path-based routing
     + priority rules
 -> ALB is recommended over NLB or CLB
+
+ECS Security
+    Traditional EC2 host: all the containers/tasks under EC2 host will have the same privillege of that EC2 (not ideal)
+    Task Role: Each task has their own Task Role (least privillege = IDEAL)
