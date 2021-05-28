@@ -1,0 +1,102 @@
+=====================================================================================================================
+=====================================================================================================================
+OPERATIONAL EXCELLENCE
+    The Operational excellence pillar includes the ability to support development and run workloads effectively,
+    gain insight into their operation, and concoutinuously improve supporting processes and procedures to delivery
+    business value.
+
+    Design Principles:
+        Perform operation as code
+        Make frequent, small, reversible changes
+        Refine operations procedure frequently
+        Anticipate failure
+        Learn from all operational failures
+    
+    Best Practices:
+        Creates and uses procedures to respond to operational events
+        Validate their effectiveness to support business needs
+        collects metric to measure the achievement of desired business outcomes
+        Design a business support evolution over time in response to change
+
+
+
+========================================================================================================================
+========================================================================================================================
+SECURITY
+    The Security pillar includes the ability to protect data, system, and assets to take advantage of cloud technologies
+    to improve your security. 
+
+    Design Principles:
+        Implement a strong identity foundation
+        Enable traceability
+        Apply security at all layers
+        Automate security best Practices
+        Protect data in transit and at rest
+        Keep people away from data
+        Prepare for security events
+
+    Best Practices:
+        Control Who, Do What
+        Identify security incident, protect your systems, services
+        Maintain confidentiality and integrity of data through data protection
+
+
+
+========================================================================================================================
+========================================================================================================================
+RELIABILITY
+    The Reliability pillar encompasses the ability of a workload to performance its intended function correctly 
+    and consistently when it's expected to. This includes the ability to operate and test the workload through
+    its total life cycle. 
+
+    Design Principles:
+        Automatically recover from failure
+        Test recovery procedures
+        Scale horizontally to increase aggregate worload availability
+        Stop guessing capacity
+        Manage change in automation
+
+    Best Practices
+        Start with foundation-- an enviroment where quotas and network topology accomondate the workload
+        Workload architecture must be designed to prevent and mitigate failures
+        Workload must handle changes in demand
+        Workload must be able to detect failure and automatically heal itself
+
+
+
+========================================================================================================================
+========================================================================================================================
+PERFORMANCE EFFICIENCY
+    The Performance Efficiency pillar includes the ability to use computing resources efficiently to meet system 
+    requirements, and to maintain that efficiency as demand changes and technologies evolve.
+
+    Design Principles:
+        Democratize advanced technologies
+        Go gloval in minutes
+        Use serverless architectures
+        Experiment more often
+        Consider mechanical sympathy
+
+    Best Practices:
+        Take data-driven approach to build a high-performance architecture
+        Gather data on all aspects of the architecture, from the high-level desisn to the selection and configuration of
+            resource types
+        Reviewing your choices on a regular basis ensures you are taking advantage of the continually evolving AWS Cloud
+        Monitoring ensures you are aware of any deviance from exptected performance
+        Made trade-offs in your architecture to improve Performance
+        Well-Architected workloads use multiple solutions and enable different features to improve performance 
+
+
+
+========================================================================================================================
+========================================================================================================================
+COST OPTIMIZATION
+    This pillar includes ability to run system to delivery business value at the lowest price point
+
+    Design Principles:
+        Implement cloud financial management
+        Adopt a consumption model
+        Measure overall efficiency
+        Stop spending money on undifferentialted heavy lifting
+        Analyze and attribute expenditure
+    
