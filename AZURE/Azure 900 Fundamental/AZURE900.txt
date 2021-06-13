@@ -10,3 +10,50 @@ Very cheap, very limited
 Cloud Hosting: Multiple physical machines that act as one system.
 Flexible, scalable, secure, cost--effective, high configurability
 
+Cloud Computing: Compute, Networking, Storage, Database on Cloud
+
+Microsoft:
+
+Azure: Microsoft Cloud Privider Server CPS
+
+Benefit:
+    Cost: pay as you go PAYG
+    Global:
+    Secure:
+    Reliable:
+    Scalable:
+    Elastic:
+    Current: patch and update by CPS
+
+Types of Cloud Computing:
+    Saas: Software as a Service
+    PaaS: Platform as a Service
+    Iaas: Infrastructure as a Service
+
+Responsibilities:
+    On-Premise = 100% Customer
+    Iaas 
+    PaaS
+    SaaS  = 100% CPS 
+
+Cloud Deployment Models:
+    Public Cloud: Everything built on the Cloud Provider = Cloud-Native
+    Private Cloud: Everything built on company's datacenters = On-prem (or Open-Stack)
+    Hybrid: On-Prem + Cloud with some sort of connection in between 2 platforms
+    Cross-Cloud: multiple cloud providers (Azure Arc)
+
+TCO:
+
+Capital Expenditure (CAPEX): Spending money upfront = Have to guess
+
+Operational Expenditure (OPEX): Pay as you go = start without investing in equipment
+
+Availability: Ensure a service remain available = no single point of failure
+
+Scalability: ability to grow rapidly
+
+Elasticity: ability to shrink and grow to meet the demand
+
+Fault Tolerance: ability to prevent a failure
+
+Disaster Recovery: ability to recover from a failure DR
