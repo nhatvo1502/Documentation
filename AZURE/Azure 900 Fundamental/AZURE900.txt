@@ -1,0 +1,12 @@
+Dedicated Server: One physical machine dediated to a single a business. Run a single machine
+Very expensive, high maintenance, high security
+
+Virtual Private Server: One physical dedicated to a single business. Virtualized into sub-machines
+NA
+
+Shared Hosting: One physical machine, shared by many businesses.
+Very cheap, very limited
+
+Cloud Hosting: Multiple physical machines that act as one system.
+Flexible, scalable, secure, cost--effective, high configurability
+
