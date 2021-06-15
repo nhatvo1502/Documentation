@@ -191,3 +191,78 @@ Database Services:
     Azure Cache for Redis
     Azure Table Storage
 
+Application Integration Services = help applications and services talk to each other (like glue)
+    Azure Notification hub: publisher/subscriber
+    Azure API Apps
+    Azure Service Buss: Messaging as a Service (MaaS) service bus
+    Azure Stream Analytics: Serverless real-time analytics from the cloud to the edge
+    Azure Logic Apps: schedule, automate and orchestrate tasks, businesses processes and workflows
+        integration with Enterprise SaaS and Enterprise applications
+    Azure API Management
+    Azure Queue Storage
+
+Developer and Mobile Tools
+    Azure SignalR Service = Real-time Messaging. Pusher for Azure
+    Azure App Service = easy to use service for deplying and scaling web-applications with .Net, Node.js, Java, python and PHP
+    Visual Studio = code editor
+    Xamarin = mobile-app framework .Net
+
+Azure DevOps Services
+    Azure DevOps
+        Azure Boards = schedule, plan, tracks
+        Azure Pipelines = build, test, Deployment
+        Azure Repos = github
+        Azure Test Plans
+        Azure Artifacts = create, host, share packages CI/CD
+        Azure DevTest Labs
+
+Azure Resource Manager
+    ARM create Azure resources via JSON template (like AWS)
+
+Azure QuickStart template
+    a library of a pre-made ARM templates
+
+Azure Virtual Network (vNet) and Subnets
+    vNet = VPC
+
+Cloud-Native Networking Services
+    Azure Defense
+    vNet
+    Azure Load Balancer (layer 4, no application aware)
+    Azure Application Gateway (layer 7, application aware)
+    Network Security Groups = virtual firewall, subnet level
+
+Enterprise/hybrid Networking services
+    Azure Front Door = scalable and secure entry point for fast delivery of your global applications
+    Azure Express Route = a connetion between your on-prem to Azure cloud from 50 Mbps to 10 Gbps
+    Virtual WAN - hub and spoke Models
+    Azure Connection = VPN IPsec
+    Virtual Network Gateway = site-to-site VPN connection between Azure virtual and local network
+
+Azure Traffic Manager 
+    DNS layer
+    routing method
+
+Azure DNS
+
+Azure Load Balancer
+    Layer 4 - Transport
+    Public Load Balancer
+    Private Load Balancer
+
+Scale Sets
+    AWS ASG
+    Base on change in CPU, memory,etc
+    Base on schedule
+
+IoT Services
+    IoT Central
+    IoT Hubs
+    IoT Edge: offload compute from the cloud to local computing hardware (phone, etc.)
+    Windows 10 IOT Core Services
+
+Big Data and Analytics Services
+    Azure Sunapse Analytics
+    HDInsight
+    Azure Databricks
+    Data Lake Analytics
