@@ -159,3 +159,35 @@ Glabal Infrastructure - Regions and Geographies
         Update Domain = a secondary domain to run resource from in case Azure update  one domain, 
             no 2 domain update at the same time
         Availability Set = local grouping of differet fault/update domain to run VM from to avoid downtime
+
+Azure Virtual machines
+Azure Container Instances
+Azure Kubernetes Service AKS
+Azure Service Fabric
+    Tier-1 Enterprise Containers as a Service
+    microservices
+Azure Functions (Lambda?)
+    Event-drive, serverless compute
+Azure Batch
+    Plans, schedules and executes your batch computer workloads in parallel
+
+Storage Services:
+    Azure Blob Storage (~AWS S3)= object Serverless Storage 
+    Azure Disk Storage = Virtual volume 
+    Azure File Storage = shared volume that you can access and manage like a file server SMB 
+    Azure Queue Storage (~AWS SNS/SQS storage) = messaging queue a data store for queuing and reliably delivering messages
+    Azure Table Storage (~AWS database) = Wide-Column NoSQL Database
+    Azure Data Box / Azure Databox Heavy = AWS Snowbal
+    Azure Archive Storage = AWS Glacier / Deep Glacier
+    Azure Data Lake Storage = Centralized repo store all your strutured and unstructured data at any scale
+
+Database Services:
+    Azure Cosmos DB: Fully managed NoSQL databases, 99.999% availability
+    Azure SQL Database: Fully managed MS SQL database with auto-scale, integral intelligence, security
+    Azure Data for MySQL, PSQL, MariaDB
+    SQL Server on VMs: lift-and-shift MS SQL from on-prem to cloud
+    Azure Synapse Analytics (Data Warehouse)
+    Azure Database Migration Service
+    Azure Cache for Redis
+    Azure Table Storage
+
