@@ -42,18 +42,120 @@ Cloud Deployment Models:
     Hybrid: On-Prem + Cloud with some sort of connection in between 2 platforms
     Cross-Cloud: multiple cloud providers (Azure Arc)
 
-TCO:
+TCO: Total Cost of Ownership
 
 Capital Expenditure (CAPEX): Spending money upfront = Have to guess
-
+    Server Costs(Computers)
+    Storage Costs (hard drives)
+    Network Costs (routers, cables, switches)
+    Backup and Archive Cost
+    Disaster Recovery Cost
+    Datacenter Cost (Rent, Cooling, Physical Security)
+    Technical Personal
 Operational Expenditure (OPEX): Pay as you go = start without investing in equipment
+    Leasing software and Customizing features
+    Training Employees in Cloud services
+    Paying for Cloud Support
+    Billing based on cloud metrics
+        computer usage
+        storage usage
 
-Availability: Ensure a service remain available = no single point of failure
+Terminology:
+    Availability: Ability to remain available agaisnt failure = no single point of failure
+        High availability
+        Azure Load Balancer
 
-Scalability: ability to grow rapidly
+    Scalability: ability to grow rapidly
+        High scalability
+        Scaling up = bigger hard drive, faster pc
+        Scaling out = add more servers at the same size
 
-Elasticity: ability to shrink and grow to meet the demand
+    Elasticity: ability to shrink and grow traffic, memory, and computing power to meet the demand
+        High Elasticity
+        Horizontal scaling out - add more server same size (meet demand)
+        Horizontal scaling in - removing more server same size (save cost)
+        Azure VM Scale switches
+        SQL Server Stretch Database
 
-Fault Tolerance: ability to prevent a failure
+    Fault Tolerance: ability to recover from a failure/disaster and to prevent data loss
+    Disaster Recovery: ability to recover from a failure DR
+        High Durability
+        Do you have backup?
+        How fast can you restore?
+        Does your backup still work?
+        How do you ensure current live data is not corrupt?
 
-Disaster Recovery: ability to recover from a failure DR
+Dedicated -> VMs -> Containers -> Functions
+    Dedicated = bare metal
+    VM:
+        can run multiple vm on one machine
+        hypervisor is the software layer let you vm
+    Containers:
+        virtual machine running multiple Containers
+        Docker Deamon is the name of the software layer that lets you run multiple Containers
+    Functions:
+        Definition: piece of code running inside a docker/vm
+        Good: user responsobile for code and data, cost effective, pay as the code run
+        Bad: Cold Start 
+
+Glabal Infrastructure - Regions and Geographies
+    Region is a grouping of multiple datacenters (AZ)
+        58 Regions across 140 countries
+    Geography is discreet market of two or more regions that preserves data residency and compliance boudaries
+        Data will stay within that Geography. EG: US government will use USA Geography instead of Region.
+        Azure Geographies:
+            United States
+            Azure Government US
+            Canada
+            Brazil
+            Mexico
+
+    Paired Regions: 
+        paired with another region 300 miles away
+        only one region is updated at a time to ensure no outages
+        Some Azure Services reply on this for DR. EG: Azure Geo-redundant Storage GRS repliaces data to a secondary
+            region automatically
+    
+    Region Types and Service Availability:
+        Not all Azure servers are available in every Region
+        Recommended region: provide broadest range of services
+        Alternate (other) region: extends of Azure's footprint from Recommended Region. Not support AZs
+        General availability (GA): a service is ready to be used publicly by everyone
+        
+        Azure Cloud serivce three categories:
+            1. Foundational. When GA, immediately in 12 months in Recommended and Alternate
+            2. Mainstream. When GA, immediately or in 12 mo in Recommended only
+            3. Specialized. Available in Recommended or Alternate Region based on customer demand
+
+    Special Regions:
+        Azure has specialized regions to meet compliance or legal reasons
+        US DoD Central (Department of Defense)
+        US Gov Virginia
+        US Gov Iowa
+        (secret locations undisclosed)
+        China East
+        China North
+        (available through unique relation with 21Vianet.com)
+
+    Availability Zone (AZ) = Physical location made up one or more datacenters
+        A region will generally contain 3 AZ
+        Datacenter within region will be isolate, close enough for low-latency
+        Common practice is running 3 AZ for HA
+
+    AZ Supported Region:
+        Alternate/Other = doesn't support AZs
+        Recommended suppose to have at least 3 AZs
+            Central US
+            East US 2
+            West US 2
+            West Europe
+            France Central
+            North Europe
+            Southeast Asia
+
+    Fault and Update Domains
+        Fault Domain = a logical grouping of hardware to avoid a single point of failure in an AZ
+            Share common power source and network switches
+        Update Domain = a secondary domain to run resource from in case Azure update  one domain, 
+            no 2 domain update at the same time
+        Availability Set = local grouping of differet fault/update domain to run VM from to avoid downtime

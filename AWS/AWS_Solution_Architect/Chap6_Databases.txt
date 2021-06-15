@@ -235,7 +235,7 @@ Redshift OLAP - is AWS solution for Datawarehouse where there is a huge amount o
             + your own keys through Hardware Security Module HSM
             + AWS KMS
     
-    availability:
+    Availability - Cross Region Snapshots
         -> only in 1 AZ
         -> can be restore to another AZ from a snapshot
 

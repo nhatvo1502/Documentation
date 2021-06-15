@@ -120,3 +120,10 @@ AWS Firewall Manager
     -> WAF rules:
         + ALB
         + API Gateway
+        + CloudFront
+    -> AWS Shield Advanced protections:
+        + ALB
+        + ELB Classic
+        + EIP
+        + CloudFront distributions
+    -> Enable security groups for EC2 and ENIs
