@@ -266,3 +266,34 @@ Big Data and Analytics Services
     HDInsight
     Azure Databricks
     Data Lake Analytics
+
+AI/ML
+    Deep Learning -> ML -> AI
+    Azure Machine Learning Service
+    Azure Machine Learning Studio (classic)
+    
+    Personalizer
+    Translator
+    Anomaly Detector
+    Azure Bot Service
+    Form Recogniser
+    Computer Vision
+    Language Understanding
+    QnA Maker
+    Text Analytics
+    Content moderator
+    Face
+    Ink Recogniser
+
+Serverless
+    Event-Driven ~Lambda
+    Abstraction of Server
+    Micro-Billing
+
+    Azure Functions (lambda)
+    Blob Storage (S3)
+    Logic Apps: serverless workflows of Functions
+    Event Grid: pub/sub react to event and trigger other service such as Functions
+
+Azure Portal 
+    AWS IAM
