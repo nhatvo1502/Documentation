@@ -297,3 +297,4 @@ Serverless
 
 Azure Portal 
     AWS IAM
+    Azure Preview Portal
