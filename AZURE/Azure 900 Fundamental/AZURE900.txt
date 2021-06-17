@@ -300,3 +300,12 @@ Azure Portal
     Azure Preview Portal
 
 Powershell
+    built on top of .NET Common Language Runtime CLR
+    Azure PowerShell
+
+Vosual Studio Code
+
+Azure Cloud PowerShell
+
+Azure CLI
+    Command Line Interface
