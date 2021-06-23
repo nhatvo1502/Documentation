@@ -309,3 +309,88 @@ Azure Cloud PowerShell
 
 Azure CLI
     Command Line Interface
+
+Azure Security
+    Compliance Programs
+        We only do business with if you are:
+            NIST 800-53
+            PIPEDA
+            HIPPA FIPS-140-2
+        CJIS = Criminal Justice Information Services 
+        CSA = Cloud Security Alliance
+        GDPR = General Data Protection Regulation
+        EU Model Clauses
+        HIPAA = Heal Insurance Portable and Accountability Act
+        ISO = International Organization for Standardization
+        IEC = International Electrotechnical Commision
+        MTCS = Multi-Tier Cloud Security Singapore
+        SOC 1 2 3 = Service Organization Controls
+        NIST = Nation Institute of Standards and Technology
+        CSF = Cybersecurity framework
+        UK Government G-Cloud
+        FIPS 140-2 = Federal Information Processing Standard
+
+Azure Active Directory
+    Microsoft's cloud-based identity and access management service
+    External Resources:
+        Microsoft Office 365
+        Azure Portal
+        SaaS Application
+    Internal Resource:
+        Application within your internal Networking
+        Access to workstations on-Premise
+    Azure AD implement Single-Sign On SSO
+
+    Four Edition:
+        1. Free: MFA, SSO, Basic Security and Usage reports, user management
+        2. 365: apps company branding, SLA, Two-Sync between on-prem and cloud
+        3. Premium 1: Hybrid Architecture, Advanced Group Access, Conditional Access
+        4. Premium 2: Identiy Protection, Identity Governance
+
+MFA:
+    Security control where after you fill in your username/email and password  you have to use a second device 
+        such as phone to confirm that its you loggin in
+
+Azure Security Center
+    unified infrastructure security management system
+    strengthens the security posture of your data centers, and provides advanced threat protection across your 
+        hybrid workloads in the cloud
+
+Key Vault
+    helps you safeguard cryptographic keys and other secrets 
+
+    Secrets Management: 
+        store and tightly control access to token, passwords, certificates, API keys, secrets
+    Key Management: 
+        create and control the encryption keys used to encrypt data
+    Certificate Management: 
+        provision, manage, deploy public and private SSL certificates internal resources
+    Hardware Security Module: 
+        secrets and keys can be protected either by software or FIPS 140-2 Level 2 validated HSMs
+        HSM has secrets store on memory, power off everything is government
+        HSM multi-tenant = FIPS 140-2
+        HSM single-tenant = FIPS 140-3
+    
+DDoS Protection
+    DDoS = malicious attempt to disrupt normal traffic by flooding a website with large amounts of fake traffic
+    Two Tiers:
+        DDoS Protection Basic:
+            Free
+            Already turn on
+        DDoS Protection Standard
+            $2,994/month
+            Metrics, Alerts, Reporting
+            DDoS export support
+            Application and Cost Protection SLAs
+
+Azure firewall  
+    A managed, cloud-based network security service
+    Design:
+
+    Features:
+        - Centrally create, enforce, and log application and network connectivity policies across subscription and virtual networks
+        - Uses a static public IP address (the one with internet facing)
+        - High availability is built in, no additional load balancers are required
+        - span multiple AZs
+        - no additional cost for a firewall deployed in an AZ
+        - additional cost for inbound and outbound data transfer
