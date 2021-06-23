@@ -426,3 +426,105 @@ Role-based Access Control RBAC
         Group =  set of users in Azure AD
         Service Principal = a security identity used by applications or service to access Azure resources
         Managed identity = an identity in Azure AD
+        Scope = set of resources that access for the Role Assignment. Applied at Management, Subscription or Resource Group level
+        Role Defintion = is a collection of permissions
+            Built-in roles:
+                                Read    Grant   Create, Update, Delete
+            Owner               X       X       X       
+            Contributor         X       -       X
+            Reader              X       -       -
+            User Acces Admin    -       X       -
+
+            Custom roles:
+
+Lock resources
+    lock a subscription, resource group, or resource to prevent other users from accidentally deleting or modifying critical resources
+    Lock levels:
+        CanNotDelete (Delete) = authorized users can still read and modify, but no Delete
+        ReadOnly (Read-Only) = authorized users can read a resource, but they can't delete or update the resource
+
+Management Groups
+    Managing multiple subscriptions (accounts) into hierachal structure
+    inheritance
+
+Azure Montitor
+    collecting, analyzing, and acting on telemetry from cloud and on-prem
+
+Azure Service Health
+    Current and upcoming issues: service impacting events, planned maintenance, changes that may affect availability
+    1. Azure Status: informs you of service outages in Azure
+    2. Azure service health: is a personalized view of the health of Azure services and regions
+    3. Azure resource health: information about the health of your individual cloud resource
+
+Azure Advisor
+    cloud consultant help you follow best practices to optimize Azure deployments
+    Recomendation for 5 main categories:
+        1. High Availability
+        2. Security
+        3. Performance
+        4. Cost
+        5. Operational Excellence
+
+Service Level Agreement SLA
+    commitments for uptime and connectivity
+    doesn't provide SLA for free tier
+    SLA is service specific
+    2, 5, 9 nines
+
+Service Credits
+    customers may have discount applied to their Azure bill, as compensation for an under-performing Azure product or service on the SLA
+    
+Composite SLA
+     different services have different SLAs
+     composite SLA is combining SLAs across different service offerings
+     fallback system will improve SLA
+
+TCO calculator
+
+Azure Marketplace
+    apps and services made available by third-party publisher/subscriber
+    free, free trial, pas-as-you-go, bring your own license BYOL
+
+Azure Support Plans
+    Basic                       Developer               Standard                Professional Direct
+    Email Billing Support       Email Tech Support ================================================          
+                                                        24/7 Phone Support ========================
+                                Third-part Software ===============================================
+                                Minimal business impact 8 hours <============== less than 4 hours
+                                                        Moderate Sev B 4hrs     2hrs
+                                                        Critial Sev C less than 1hr ===============
+    Azure Advisor, Health status, Community support, Azure Document ===============================
+                                Architecture General Guidance =====================================
+                                                                                ProDirect
+                                                                                Webinars leds by Azure
+                                                                                    engineers
+    0 used                      29 USB per months   100 USD                     $1000 USD
+
+Azure licensing - Azure Hybrid Benefit (HUB)
+    repurpose existing Windows Server licenses
+    + Windows servers
+    + SQL Servers
+    HUB can be turned on and off at anytime for existing VMs
+    HUB can be applied at deployment time for new VMs
+
+Azure subscriptions
+    4 tiers of Azure Subscriptions:
+        1. Free Sub:
+            Credit card required
+            $200 credit for 30 days
+            Certain Azure products free for 12 months
+        2. PAYG
+            Credit card required
+            Charged end at the end of months
+        3. Enterprise Agreement
+            Reserved resource
+        4. Student 
+            No credit card required
+            $100 credit for 12 months
+            Requires valid student Email
+
+Azure Price calculator
+
+Azure Cost Management
+    cost analysis
+    create budget, alert when exceed threshold
