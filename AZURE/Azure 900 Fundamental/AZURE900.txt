@@ -394,3 +394,35 @@ Azure firewall
         - span multiple AZs
         - no additional cost for a firewall deployed in an AZ
         - additional cost for inbound and outbound data transfer
+
+Azure Information Protection (AIP)
+    Protect sensitive information such as emails and documents with encryption
+    Integrate with Office apps
+
+Azure Application Gateway
+    Applcation load balancer layer 7 HTTP
+    Web Application Firewall WAF
+    security rules
+
+Advanced Threat Protection ATP
+    IDS = intrution detection system
+    IPS = intrution protection system
+
+    ATP is a cloud-based security solution that leverages your on-prem AD signals to identify, detect, and investigate advanced threats,
+        compromised identites, and malicious
+
+Microsoft Security Development Lifecycle SDL or MSDL
+    industry-leading software security assurance process
+    building securit into each SDL phase of the development lifecycle helps catch issues early, reduce development cost:
+    Training > Requirements > Design > Implementation > Verification > Release > Response
+
+Azure policies
+    is a service you can use to create, assign, and manage policies
+    Azure Definitions: json format
+
+Role-based Access Control RBAC
+    A Security Principal represents the identities requesting access to an Azure resource:
+        User = individual profile in Azure Active Directory
+        Group =  set of users in Azure AD
+        Service Principal = a security identity used by applications or service to access Azure resources
+        Managed identity = an identity in Azure AD
