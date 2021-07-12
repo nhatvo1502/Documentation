@@ -1,0 +1,26 @@
+What is cloud computing?
+    Dedicated Server: One physical machine dedicated to single a business. Run a single web-app/site -> Very expensive, high maintenance, high security tasks
+
+    Virtual Private Server: One physical machine dedicated to a single business. Then divide into sub-machines. Run multiple web-app/sites
+
+    Shared Hosting: One physical machine, shared by hundred of businesses. Relies on most tenants under-utilizing their resources. Very Cheap and limited
+
+=================================================================================
+= COMPUTE =
+=================================================================================
+SaaS Software as a Service => For customers
+PaaS Platform as a Service => For Developers
+IaaS Infrastr as a Service => For IT Administrators
+
+Public Cloud vs Private Cloud:
+    Public = shared cloud AWS, AZURE, Google Cloud
+    Private = On-premise OpenStack
+    Hybrid = half public, half Private
+
+Cost:
+    Public: Most-cost effective
+    Private: Most expensive
+    Hybrid: depends on offload and designs
+
+Cross-Cloud:
+    Using Multiple CSP
